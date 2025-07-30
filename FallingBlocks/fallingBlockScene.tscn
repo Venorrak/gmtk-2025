@@ -1,0 +1,47 @@
+[gd_scene load_steps=14 format=3 uid="uid://dhhhsdiubg8h"]
+
+[ext_resource type="Script" uid="uid://be3tqicpeevwi" path="res://FallingBlocks/Scripts/blocks_spawner.gd" id="1_dprjx"]
+[ext_resource type="PackedScene" uid="uid://bwdecjbbtgri6" path="res://FallingBlocks/Blocks/Block1.tscn" id="2_h3tpo"]
+[ext_resource type="PackedScene" uid="uid://7hgqc4yb7lx" path="res://FallingBlocks/Blocks/Block2.tscn" id="3_1plht"]
+[ext_resource type="PackedScene" uid="uid://n8n1u34xpj42" path="res://FallingBlocks/Blocks/Block3.tscn" id="4_qobxd"]
+[ext_resource type="PackedScene" uid="uid://cuc4tuj31qki5" path="res://FallingBlocks/Blocks/Block4.tscn" id="5_d73qp"]
+[ext_resource type="PackedScene" uid="uid://bjdliwr4acf46" path="res://FallingBlocks/Blocks/Block5.tscn" id="6_0inw1"]
+[ext_resource type="PackedScene" uid="uid://cik3vmt8d1ja" path="res://FallingBlocks/Blocks/Block6.tscn" id="7_lqjte"]
+[ext_resource type="PackedScene" uid="uid://bj4o7iiegoi31" path="res://FallingBlocks/Blocks/Block7.tscn" id="8_r61rh"]
+[ext_resource type="PackedScene" uid="uid://cxnkulyliv8vl" path="res://FallingBlocks/Blocks/Block8.tscn" id="9_6yyl4"]
+[ext_resource type="PackedScene" uid="uid://dutp2nfmr00c8" path="res://FallingBlocks/Blocks/Block9.tscn" id="10_i6718"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dprjx"]
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h3tpo"]
+size = Vector3(5, 0.5, 5)
+
+[sub_resource type="Environment" id="Environment_dprjx"]
+background_mode = 1
+background_color = Color(0, 0.820605, 0.876013, 1)
+background_energy_multiplier = 0.5
+
+[node name="FallingBlocksScene" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_dprjx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_h3tpo")
+
+[node name="BlocksSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2749, 0)
+script = ExtResource("1_dprjx")
+block_scenes = Array[PackedScene]([ExtResource("2_h3tpo"), ExtResource("3_1plht"), ExtResource("4_qobxd"), ExtResource("5_d73qp"), ExtResource("6_0inw1"), ExtResource("7_lqjte"), ExtResource("8_r61rh"), ExtResource("9_6yyl4"), ExtResource("10_i6718")])
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.121949, 0.696512, 0, 0.985016, 0.172462, -0.707107, -0.121949, 0.696512, 11.9454, 9.77885, 13.1956)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dprjx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.49335, 0.869831, 0, -0.869831, 0.49335, 0, 13.1006, 0)

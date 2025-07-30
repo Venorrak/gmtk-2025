@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://dutp2nfmr00c8"]
+
+[ext_resource type="Script" uid="uid://du3kb181qimob" path="res://FallingBlocks/Scripts/platform_physics.gd" id="1_5lvoc"]
+[ext_resource type="PackedScene" uid="uid://bbvhfx6krulit" path="res://FallingBlocks/Blocks/BlockModels/cone.glb" id="2_lcv1n"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ms87g"]
+height = 0.10752
+radius = 0.357422
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qmx6p"]
+height = 0.10752
+radius = 0.282715
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_u3rdv"]
+height = 0.10752
+radius = 0.447266
+
+[sub_resource type="BoxMesh" id="BoxMesh_sga2b"]
+size = Vector3(1, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1yj3f"]
+size = Vector3(1, 0.2, 1)
+
+[node name="Block4" type="RigidBody3D"]
+script = ExtResource("1_5lvoc")
+max_tilt_degrees = 15.0
+tilt_speed = 2.0
+tilt_to_movement_factor = 0.75
+
+[node name="GroundRay" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.191162, 0)
+visible = false
+target_position = Vector3(0, -0.5, 0)
+
+[node name="cone" parent="." instance=ExtResource("2_lcv1n")]
+transform = Transform3D(-0.4, -3.49691e-08, 0, 3.49691e-08, -0.4, 0, 0, 0, 0.4, -2.65898e-10, 0.185079, 0)
+visible = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 8.94902e-10, 0.198357, 0)
+visible = false
+shape = SubResource("CylinderShape3D_ms87g")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, -9.29947e-09, 0.081747, 0)
+visible = false
+shape = SubResource("CylinderShape3D_qmx6p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 8.67047e-09, 0.287299, 0)
+visible = false
+shape = SubResource("CylinderShape3D_u3rdv")
+
+[node name="GroundRay2" type="RayCast3D" parent="."]
+transform = Transform3D(0.173648, 0, -0.984807, 0, 1, 0, 0.984807, 0, 0.173648, 0, 0, 0)
+target_position = Vector3(0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.173648, 0, -0.984807, 0, 1, 0, 0.984807, 0, 0.173648, 0, 0, 0)
+mesh = SubResource("BoxMesh_sga2b")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.173648, 0, -0.984807, 0, 1, 0, 0.984807, 0, 0.173648, 0, 0, 0)
+shape = SubResource("BoxShape3D_1yj3f")

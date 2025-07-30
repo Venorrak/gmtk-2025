@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://n8n1u34xpj42"]
+
+[ext_resource type="Script" uid="uid://du3kb181qimob" path="res://FallingBlocks/Scripts/platform_physics.gd" id="1_8l0mj"]
+[ext_resource type="PackedScene" uid="uid://bbvhfx6krulit" path="res://FallingBlocks/Blocks/BlockModels/cone.glb" id="2_cla6m"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ms87g"]
+height = 0.10752
+radius = 0.357422
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qmx6p"]
+height = 0.10752
+radius = 0.282715
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_u3rdv"]
+height = 0.10752
+radius = 0.447266
+
+[sub_resource type="BoxMesh" id="BoxMesh_cla6m"]
+size = Vector3(1, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ms87g"]
+size = Vector3(1, 0.2, 1)
+
+[node name="Block3" type="RigidBody3D"]
+script = ExtResource("1_8l0mj")
+max_tilt_degrees = 15.0
+tilt_speed = 2.0
+tilt_to_movement_factor = 0.75
+
+[node name="GroundRay" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.191162, 0)
+visible = false
+target_position = Vector3(0, -0.5, 0)
+
+[node name="cone" parent="." instance=ExtResource("2_cla6m")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.191162, 0)
+visible = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.177884, 0)
+visible = false
+shape = SubResource("CylinderShape3D_ms87g")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.294494, 0)
+visible = false
+shape = SubResource("CylinderShape3D_qmx6p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0889419, 0)
+visible = false
+shape = SubResource("CylinderShape3D_u3rdv")
+
+[node name="GroundRay2" type="RayCast3D" parent="."]
+transform = Transform3D(0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, 0, 0, 0)
+target_position = Vector3(0, -0.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, 0, 0, 0)
+mesh = SubResource("BoxMesh_cla6m")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, 0, 0, 0)
+shape = SubResource("BoxShape3D_ms87g")
