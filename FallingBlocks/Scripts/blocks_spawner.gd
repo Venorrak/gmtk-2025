@@ -26,7 +26,6 @@ func _deferred_spawn_block(new_block):
 		return
 	
 	if not get_tree() or not get_tree().current_scene:
-		print("Scene tree invalid")
 		if new_block:
 			new_block.queue_free()
 		return
