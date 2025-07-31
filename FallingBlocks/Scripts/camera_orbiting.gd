@@ -17,21 +17,17 @@ func _process(delta):
 	if not target:
 		return
 	
-	# Follow target if it moved
 	if target_pos != target.global_position:
 		target_pos = target_pos.lerp(target.global_position, 5.0 * delta)
 	
-	# Rotate around target
 	if auto_rotate:
 		angle += speed * delta
 	
-	# Position camera
 	var x = cos(angle) * distance
 	var z = sin(angle) * distance
 	global_position = target_pos + Vector3(x, height, z)
 	look_at(target_pos, Vector3.UP)
 
-# Simple controls
 func stop():
 	auto_rotate = false
 

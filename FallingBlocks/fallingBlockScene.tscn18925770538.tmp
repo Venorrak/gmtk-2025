@@ -1,8 +1,7 @@
-[gd_scene load_steps=18 format=4 uid="uid://dhhhsdiubg8h"]
+[gd_scene load_steps=17 format=4 uid="uid://dhhhsdiubg8h"]
 
 [ext_resource type="Shader" uid="uid://ct0ajf0o66smf" path="res://FallingBlocks/gridShader.gdshader" id="1_0x1ws"]
 [ext_resource type="Script" uid="uid://be3tqicpeevwi" path="res://FallingBlocks/Scripts/blocks_spawner.gd" id="1_dprjx"]
-[ext_resource type="PackedScene" uid="uid://bwdecjbbtgri6" path="res://FallingBlocks/Blocks/Block1.tscn" id="2_h3tpo"]
 [ext_resource type="Script" uid="uid://bajsfl4rcdq11" path="res://FallingBlocks/Scripts/camera_orbiting.gd" id="3_1plht"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0x1ws"]
@@ -186,7 +185,7 @@ shape = SubResource("BoxShape3D_dprjx")
 [node name="BlocksSpawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2749, 0)
 script = ExtResource("1_dprjx")
-block_scenes = Array[PackedScene]([ExtResource("2_h3tpo")])
+active_platforms_count = null
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(0.707107, -0.121949, 0.696512, 0, 0.985016, 0.172462, -0.707107, -0.121949, 0.696512, 0, 1.07315, 0)

@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://b2u6of035s4k8" path="res://FallingBlocks/Blocks/BlockMat/BlockMatDetailed.tres" id="2_o8uax"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0vpn"]
-size = Vector3(1, 0.2, 1)
+size = Vector3(2, 0.4, 2)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_u44gm"]
 _surfaces = [{
@@ -38,9 +38,6 @@ shadow_mesh = SubResource("ArrayMesh_u44gm")
 
 [node name="Block1" type="RigidBody3D"]
 script = ExtResource("1_d0vpn")
-max_tilt_degrees = 15.0
-tilt_speed = 2.0
-tilt_to_movement_factor = 0.75
 
 [node name="GroundRay" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.147587, 0)
@@ -50,7 +47,7 @@ target_position = Vector3(0, -0.5, 0)
 shape = SubResource("BoxShape3D_d0vpn")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.1, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
 material_override = ExtResource("2_o8uax")
 mesh = SubResource("ArrayMesh_inudm")
 skeleton = NodePath("")

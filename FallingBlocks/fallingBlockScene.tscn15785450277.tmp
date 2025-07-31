@@ -198,7 +198,7 @@ transform = Transform3D(0.707107, -0.121949, 0.696512, 0, 0.985016, 0.172462, -0
 transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, 0, 1, 0, -1.32466, -0.231929)
 script = ExtResource("3_1plht")
 target = NodePath("../../Node3D")
-distance = 5.0
+distance = 6.5
 height = 8.0
 speed = 0.25
 
