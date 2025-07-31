@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://chkxa5rgv8sj1"]
+
+[ext_resource type="PackedScene" uid="uid://dm52iedh25sff" path="res://FallingBlocks/Blocks/BlockModels/cube.glb" id="1_ws6bj"]
+[ext_resource type="Material" uid="uid://b2u6of035s4k8" path="res://FallingBlocks/Blocks/BlockMat/BlockMatDetailed.tres" id="2_ht5ce"]
+
+[node name="cube" instance=ExtResource("1_ws6bj")]
+
+[node name="Cube" parent="." index="0"]
+material_override = ExtResource("2_ht5ce")
