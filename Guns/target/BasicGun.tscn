@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhq3276v3v0ob"]
+
+[ext_resource type="Script" uid="uid://ce7kg7dtcetgx" path="res://Guns/Gun.gd" id="1_sbskw"]
+[ext_resource type="PackedScene" uid="uid://cwlnqm5kduj5w" path="res://Bullets/Straight/StraightBullet.tscn" id="2_idkd5"]
+
+[node name="BasicGun" type="Node2D"]
+script = ExtResource("1_sbskw")
+angle = 1.0
+cooldown = 0.7
+radius = 1.0
+detectionRadius = 800.0
+bullet = ExtResource("2_idkd5")
+metadata/_custom_type_script = "uid://ce7kg7dtcetgx"

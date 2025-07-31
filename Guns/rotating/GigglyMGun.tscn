@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://wmt46ecjdv2h"]
+
+[ext_resource type="Script" uid="uid://ce7kg7dtcetgx" path="res://Guns/Gun.gd" id="1_rgxgf"]
+[ext_resource type="PackedScene" uid="uid://bu33pmneuxmsj" path="res://Bullets/Wavy/WavyBullet.tscn" id="2_pb0xo"]
+
+[node name="GigglyMGun" type="Node2D"]
+script = ExtResource("1_rgxgf")
+nbCannons = 3
+angle = 360.0
+cooldown = 0.3
+rotationSpeed = 25.0
+detectionRadius = 800.0
+bullet = ExtResource("2_pb0xo")
+metadata/_custom_type_script = "uid://ce7kg7dtcetgx"

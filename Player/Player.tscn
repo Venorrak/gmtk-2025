@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://dtiscujuoah34"]
+
+[ext_resource type="Texture2D" uid="uid://dvmauv1qi1p3x" path="res://icon.svg" id="1_3qydi"]
+[ext_resource type="Script" uid="uid://b2facgkuguqvg" path="res://Player/player.gd" id="1_q3lat"]
+[ext_resource type="Script" uid="uid://drw0u0trca3q" path="res://Player/FSM/StateMachine.gd" id="2_tok1r"]
+[ext_resource type="Script" uid="uid://hvddxnqd1nve" path="res://Player/FSM/DodgeState.gd" id="3_vlldt"]
+[ext_resource type="Script" uid="uid://guo1fqadcow5" path="res://Player/FSM/IdleState.gd" id="4_s1rgi"]
+[ext_resource type="Script" uid="uid://dkt6ml0sl34g8" path="res://Player/FSM/StunnedState.gd" id="5_j23h2"]
+[ext_resource type="Script" uid="uid://c0raylo7iqdnv" path="res://Player/FSM/WalkingState.gd" id="6_0j2ni"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q3lat"]
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
+size = Vector2(38.825, 38.265)
+
+[node name="RigidBody2D" type="RigidBody2D" node_paths=PackedStringArray("SM") groups=["player"]]
+physics_material_override = SubResource("PhysicsMaterial_q3lat")
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 8.0
+script = ExtResource("1_q3lat")
+SM = NodePath("SM")
+
+[node name="SM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_tok1r")
+initial_state = NodePath("IdleState")
+
+[node name="DodgeState" type="Node" parent="SM" node_paths=PackedStringArray("body")]
+script = ExtResource("3_vlldt")
+dodgeSpeed = 2000.0
+dodgeTime = 0.4
+body = NodePath("../..")
+metadata/_custom_type_script = "uid://hvddxnqd1nve"
+
+[node name="IdleState" type="Node" parent="SM" node_paths=PackedStringArray("body")]
+script = ExtResource("4_s1rgi")
+body = NodePath("../..")
+metadata/_custom_type_script = "uid://guo1fqadcow5"
+
+[node name="StunnedState" type="Node" parent="SM" node_paths=PackedStringArray("body")]
+script = ExtResource("5_j23h2")
+stunTime = 1.0
+body = NodePath("../..")
+metadata/_custom_type_script = "uid://dkt6ml0sl34g8"
+
+[node name="WalkingState" type="Node" parent="SM" node_paths=PackedStringArray("body")]
+script = ExtResource("6_0j2ni")
+body = NodePath("../..")
+metadata/_custom_type_script = "uid://c0raylo7iqdnv"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
+shape = SubResource("RectangleShape2D_q3lat")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_3qydi")

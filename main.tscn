@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://jeth6hp8pbu3"]
+
+[ext_resource type="PackedScene" uid="uid://dtiscujuoah34" path="res://Player/Player.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://li54t3gim0qt" path="res://Enemy/Enemy.tscn" id="3_1bvp3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h2yge"]
+rough = true
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(388, 360)
+physics_material_override = SubResource("PhysicsMaterial_h2yge")
+
+[node name="Enemy" parent="." instance=ExtResource("3_1bvp3")]
+position = Vector2(778, 179)

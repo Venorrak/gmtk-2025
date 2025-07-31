@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx2p5ym2at02w"]
+
+[ext_resource type="Script" uid="uid://c7v144t68uoy0" path="res://Bullets/Double/Rotate/DoubleRotateBullet.gd" id="1_xkata"]
+[ext_resource type="Texture2D" uid="uid://dvmauv1qi1p3x" path="res://icon.svg" id="2_4qtaj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_53i4c"]
+radius = 13.0384
+
+[node name="DoubleRotateBullet" type="Node2D"]
+script = ExtResource("1_xkata")
+rotationSpeed = 2.5
+metadata/_custom_type_script = "uid://c1q1rdvrqjev5"
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Bullet1" type="Node2D" parent="Pivot"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Pivot/Bullet1"]
+position = Vector2(0, -40)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_4qtaj")
+
+[node name="Area2D" type="Area2D" parent="Pivot/Bullet1"]
+position = Vector2(0, -40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Bullet1/Area2D"]
+shape = SubResource("CircleShape2D_53i4c")
+
+[node name="Bullet2" type="Node2D" parent="Pivot"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Pivot/Bullet2"]
+position = Vector2(0, 40)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_4qtaj")
+
+[node name="Area2D2" type="Area2D" parent="Pivot/Bullet2"]
+position = Vector2(0, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Bullet2/Area2D2"]
+shape = SubResource("CircleShape2D_53i4c")
+
+[connection signal="body_entered" from="Pivot/Bullet1/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Pivot/Bullet2/Area2D2" to="." method="_on_area_2d_body_entered"]
