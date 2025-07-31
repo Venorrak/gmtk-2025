@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if current_state:
-		print(current_state)
 		current_state.physics_update(delta)
 
 # Fonction pour changer d'état

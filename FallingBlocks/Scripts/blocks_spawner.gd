@@ -2,7 +2,7 @@ extends Node3D
 
 @export var block_scenes: Array[PackedScene]
 @export var minimum_allowed_y = -10.0
-@export var active_platforms_count: int = 3
+@export var active_platforms_count: int = 10
 
 var current_block: RigidBody3D = null
 var spawned_blocks: Array[Node3D] = []

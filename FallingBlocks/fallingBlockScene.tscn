@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=4 uid="uid://dhhhsdiubg8h"]
+[gd_scene load_steps=19 format=4 uid="uid://dhhhsdiubg8h"]
 
-[ext_resource type="Shader" uid="uid://ct0ajf0o66smf" path="res://FallingBlocks/gridShader.gdshader" id="1_0x1ws"]
-[ext_resource type="Script" uid="uid://be3tqicpeevwi" path="res://FallingBlocks/Scripts/blocks_spawner.gd" id="1_dprjx"]
+[ext_resource type="Shader" uid="uid://cq67ib34urbru" path="res://FallingBlocks/gridShader.gdshader" id="1_0x1ws"]
+[ext_resource type="Script" uid="uid://d3jq5cx8m2dvl" path="res://FallingBlocks/Scripts/blocks_spawner.gd" id="1_dprjx"]
 [ext_resource type="PackedScene" uid="uid://bwdecjbbtgri6" path="res://FallingBlocks/Blocks/Block1.tscn" id="2_h3tpo"]
-[ext_resource type="Script" uid="uid://bajsfl4rcdq11" path="res://FallingBlocks/Scripts/camera_orbiting.gd" id="3_1plht"]
+[ext_resource type="Script" uid="uid://bewgyl0s3x4q5" path="res://FallingBlocks/mountain.gd" id="2_qobxd"]
+[ext_resource type="Script" uid="uid://drign7lf3nhos" path="res://FallingBlocks/Scripts/camera_orbiting.gd" id="3_1plht"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0x1ws"]
 render_priority = 0
@@ -154,7 +155,7 @@ fog_enabled = true
 fog_light_color = Color(0, 0.629484, 0, 1)
 fog_light_energy = 0.36
 fog_sun_scatter = 0.75
-fog_density = 0.009
+fog_density = 0.0
 fog_height_density = 0.8163
 
 [node name="FallingBlocksScene" type="Node3D"]
@@ -171,6 +172,7 @@ skeleton = NodePath("")
 transform = Transform3D(0.912373, 0, -0.304992, 0, 0.185, 0, 0.304992, 0, 0.912373, 0.0622976, 0.392711, 0.174563)
 mesh = SubResource("ArrayMesh_1plht")
 skeleton = NodePath("")
+script = ExtResource("2_qobxd")
 
 [node name="Base" type="StaticBody3D" parent="Environment"]
 
@@ -195,7 +197,8 @@ transform = Transform3D(0.707107, -0.121949, 0.696512, 0, 0.985016, 0.172462, -0
 transform = Transform3D(0.707107, -0.121949, 0.696512, 0, 0.985016, 0.172462, -0.707107, -0.121949, 0.696512, 5.09455, 5.64783, 5.97738)
 
 [node name="Camera3D" type="Camera3D" parent="Camera" node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, 0, 1, 0, -1.32466, -0.231929)
+transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, 0, 1, 1, -1.325, -0.232)
+current = true
 script = ExtResource("3_1plht")
 target = NodePath("../../Node3D")
 distance = 5.0
