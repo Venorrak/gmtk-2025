@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dhhhsdiubg8h"]
+[gd_scene load_steps=22 format=4 uid="uid://dhhhsdiubg8h"]
 
 [ext_resource type="Shader" uid="uid://cq67ib34urbru" path="res://FallingBlocks/gridShader.gdshader" id="1_0x1ws"]
 [ext_resource type="Script" uid="uid://d3jq5cx8m2dvl" path="res://FallingBlocks/Scripts/blocks_spawner.gd" id="1_dprjx"]
@@ -83,7 +83,7 @@ shader_parameter/grid_size = 32.0
 shader_parameter/cell_size = -0.15
 shader_parameter/gutter_size = 0.04
 shader_parameter/cell_color = Color(0, 0, 0, 1)
-shader_parameter/gutter_color = Color(0, 0.682353, 0.317647, 1)
+shader_parameter/gutter_color = Color(0, 0.442, 0.68, 1)
 shader_parameter/cell_roundedness = 0.0
 shader_parameter/cell_manipulator_radius = 0.82
 shader_parameter/cell_manipulator_uv_pos = Vector2(0.295, 0.48)
@@ -134,7 +134,45 @@ shadow_mesh = SubResource("ArrayMesh_do7pu")
 size = Vector3(3.27612, 0.5, 3.37262)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qobxd"]
-size = Vector3(1000, 1, 1000)
+size = Vector3(1000, 3.88879, 1000)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d73qp"]
+render_priority = 0
+shader = ExtResource("1_0x1ws")
+shader_parameter/grid_size = 512.0
+shader_parameter/cell_size = 6.71
+shader_parameter/gutter_size = 0.04
+shader_parameter/cell_color = Color(0.078, 0.024, 0, 1)
+shader_parameter/gutter_color = Color(1, 1.751, 1.92, 1)
+shader_parameter/cell_roundedness = 0.0
+shader_parameter/cell_manipulator_radius = 0.0
+shader_parameter/cell_manipulator_uv_pos = Vector2(0.5, 0.5)
+shader_parameter/manipulated_cell_size = 0.5
+shader_parameter/manipulator_gutter_color = Color(1, 1, 1, 1)
+shader_parameter/cell_manipulation_anim_speed = 1.0
+shader_parameter/gutter_noise_color = Color(1, 1, 1, 1)
+shader_parameter/gutter_noise_speed = 0.1
+shader_parameter/fresnel_color = Color(0.675, 0.192, 0, 1)
+shader_parameter/fresnel_intensity = 0.2
+shader_parameter/fresnel_amount = 15.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_d73qp"]
+material = SubResource("ShaderMaterial_d73qp")
+size = Vector2(1000, 1000)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qobxd"]
+frequency = 0.0418
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_d73qp"]
+seamless = true
+noise = SubResource("FastNoiseLite_qobxd")
+
+[sub_resource type="FogMaterial" id="FogMaterial_menmy"]
+density = 8.0
+albedo = Color(0.454902, 0, 0.65098, 1)
+height_falloff = 59.3172
+edge_fade = 1.5455
+density_texture = SubResource("NoiseTexture3D_d73qp")
 
 [node name="FallingBlocksScene" type="Node3D"]
 
@@ -169,10 +207,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0323486, 0.328287, -0.02993
 shape = SubResource("BoxShape3D_dprjx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Environment" groups=["Mountain"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.595, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.24998, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4444, 0)
 shape = SubResource("BoxShape3D_qobxd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.64244, 0)
+mesh = SubResource("PlaneMesh_d73qp")
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(0.707107, -0.121949, 0.696512, 0, 0.985016, 0.172462, -0.707107, -0.121949, 0.696512, 0, 1.07315, 0)
@@ -188,7 +231,13 @@ current = true
 environment = ExtResource("6_d73qp")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.16582, 0)
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5.16582, 0)
 light_energy = 0.32
 light_volumetric_fog_energy = 16.0
 light_angular_distance = 8.05
+
+[node name="FogVolume" type="FogVolume" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.63055, 0)
+visible = false
+size = Vector3(10000, 17.53, 10000)
+material = SubResource("FogMaterial_menmy")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://jeth6hp8pbu3"]
+[gd_scene load_steps=28 format=3 uid="uid://jeth6hp8pbu3"]
 
 [ext_resource type="Theme" uid="uid://bb74rah8n7o5x" path="res://Theme.tres" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://bu0b2cvqebt01" path="res://main.gd" id="1_7mycd"]
@@ -71,34 +71,6 @@ thickness = 6
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_vivmo"]
 color = Color(1, 1, 1, 1)
 thickness = 6
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0x1ws"]
-in_3d_space = true
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qobxd"]
-panorama = SubResource("NoiseTexture2D_0x1ws")
-
-[sub_resource type="Sky" id="Sky_d73qp"]
-sky_material = SubResource("PanoramaSkyMaterial_qobxd")
-
-[sub_resource type="Environment" id="Environment_dprjx"]
-background_mode = 2
-background_color = Color(1, 1, 1, 1)
-background_energy_multiplier = 9.15
-sky = SubResource("Sky_d73qp")
-ambient_light_source = 1
-tonemap_mode = 3
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 0.29
-glow_strength = 0.0
-glow_bloom = 1.0
-fog_enabled = true
-fog_light_color = Color(0, 0.629484, 0, 1)
-fog_light_energy = 0.36
-fog_sun_scatter = 0.75
-fog_density = 0.0
-fog_height_density = 0.8163
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("SM", "HUD")]
 script = ExtResource("1_7mycd")
@@ -266,8 +238,7 @@ speed = 8.0
 size = Vector2i(400, 260)
 
 [node name="topCamera" type="Camera3D" parent="3Dcam"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1000, -0.051)
-environment = SubResource("Environment_dprjx")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 56.2914, -0.051)
 projection = 1
 current = true
 fov = 37.8493

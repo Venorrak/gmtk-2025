@@ -4,6 +4,7 @@ extends RigidBody3D
 @export var max_tilt_degrees = 30.0
 @export var tilt_speed: float = 5.0
 @export var max_movement_speed = 8.0
+@export var landedColor : Color
 
 var is_landed := false
 var current_tilt := Vector3.ZERO
@@ -28,6 +29,8 @@ func land(body : Node):
 		return
 	SignalBus.Change3DCameraTarget.emit(self)	
 	SignalBus.platformDone.emit()
+	var material : StandardMaterial3D = $mesh.material_override as StandardMaterial3D
+	material.albedo_color = landedColor
 	print("LANDED")
 	
 	is_landed = true

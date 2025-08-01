@@ -43,11 +43,12 @@ max_contacts_reported = 5
 script = ExtResource("1_d0vpn")
 fall_speed = 1.5
 max_movement_speed = 1.0
+landedColor = Color(0.93, 0.465, 0, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_d0vpn")
 
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
 material_override = ExtResource("2_o8uax")
 mesh = SubResource("ArrayMesh_inudm")
