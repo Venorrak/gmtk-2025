@@ -140,7 +140,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 14
 
-[node name="Button3" type="Button" parent="UI/Pause/MainButtons"]
+[node name="QuitGame" type="Button" parent="UI/Pause/MainButtons"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -252,5 +252,6 @@ current = true
 fov = 37.8493
 size = 7.316
 
+[connection signal="pressed" from="UI/Pause/MainButtons/QuitGame" to="UI/Pause" method="_on_quit_game_pressed"]
 [connection signal="value_changed" from="UI/Pause/PanelSettings/HSlider" to="UI/Pause/PanelSettings/HSlider" method="_on_value_changed"]
 [connection signal="toggled" from="UI/Pause/PanelSettings/FullscreenControl" to="UI/Pause/PanelSettings/FullscreenControl" method="_on_toggled"]

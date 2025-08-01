@@ -20,8 +20,6 @@ func _process(_delta):
 			toggleTime()
 
 
-
-
 func _on_exit_pressed():
 	get_tree().quit()
 
@@ -31,3 +29,6 @@ func toggleTime():
 	else:
 		Engine.time_scale = 0.0 
 		pausedTime = inPauseMenu
+
+func _on_quit_game_pressed():
+	get_tree().quit()
