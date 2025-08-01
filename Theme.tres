@@ -5,7 +5,7 @@ content_margin_left = 3.0
 content_margin_top = 3.0
 content_margin_right = 3.0
 content_margin_bottom = 3.0
-bg_color = Color(0, 0.15, 0.0025, 1)
+bg_color = Color(0, 0.15, 0.045, 1)
 
 [resource]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_abrne")

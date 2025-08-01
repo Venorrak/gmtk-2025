@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://8h3hxuwkofx6"]
+
+[ext_resource type="PackedScene" uid="uid://dtiscujuoah34" path="res://Player/Player.tscn" id="1_u45fm"]
+[ext_resource type="Script" uid="uid://d2mxnoe5hvwaf" path="res://arena/arena.gd" id="1_vbyki"]
+[ext_resource type="PackedScene" uid="uid://li54t3gim0qt" path="res://Enemy/Enemy.tscn" id="2_vbyki"]
+[ext_resource type="PackedScene" uid="uid://kneudomrfmsl" path="res://Walls/Square.tscn" id="3_ml6qp"]
+[ext_resource type="PackedScene" uid="uid://b2wx0mmdda0dv" path="res://Walls/Hexagon.tscn" id="4_uj4qe"]
+[ext_resource type="PackedScene" uid="uid://dyr7njoan6e7u" path="res://Walls/Circle.tscn" id="5_8qske"]
+
+[sub_resource type="Curve" id="Curve_vbyki"]
+_limits = [0.0, 1.0, 0.0, 400.0]
+_data = [Vector2(41.0992, 0), 0.0109512, 0.00890666, 0, 0, Vector2(400, 1), 6.10518e-05, 0.0, 0, 0]
+point_count = 2
+
+[node name="Arena" type="Node2D" node_paths=PackedStringArray("player", "powerLabel")]
+script = ExtResource("1_vbyki")
+nbEnnemies = 20
+spawnRadius = 1000.0
+arenaCenter = Vector2(438, 357)
+curve = SubResource("Curve_vbyki")
+ennemyScene = ExtResource("2_vbyki")
+walls = Array[PackedScene]([ExtResource("3_ml6qp"), ExtResource("4_uj4qe"), ExtResource("5_8qske")])
+player = NodePath("player")
+powerLabel = NodePath("power")
+
+[node name="player" parent="." instance=ExtResource("1_u45fm")]
+position = Vector2(438, 357)
+
+[node name="power" type="Label" parent="."]
+offset_left = 417.0
+offset_top = 346.0
+offset_right = 459.0
+offset_bottom = 369.0
+text = "100%"
+horizontal_alignment = 1

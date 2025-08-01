@@ -7,9 +7,16 @@ extends Node3D
 var current_block: RigidBody3D = null
 var spawned_blocks: Array[Node3D] = []
 
+var currentBlockIndex : int = 0
+
 func _ready():
 	print("spawner ready")
-	call_deferred("spawn_block")
+	#call_deferred("spawn_block")
+	SignalBus.newPlatfrom.connect(changeIndex)
+	SignalBus.dropPlatform.connect(spawn_block)
+
+func changeIndex(index : int) -> void:
+	currentBlockIndex = index
 
 func spawn_block():
 	if block_scenes.is_empty():
@@ -20,7 +27,7 @@ func spawn_block():
 		print("spawner not in tree")
 		return
 		
-	var random_block = block_scenes[randi() % block_scenes.size()]
+	var random_block = block_scenes[currentBlockIndex]
 	var new_block = random_block.instantiate()
 	
 	if spawned_blocks.size() > 0:

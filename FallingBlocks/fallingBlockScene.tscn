@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=4 uid="uid://dhhhsdiubg8h"]
+[gd_scene load_steps=16 format=4 uid="uid://dhhhsdiubg8h"]
 
 [ext_resource type="Shader" uid="uid://cq67ib34urbru" path="res://FallingBlocks/gridShader.gdshader" id="1_0x1ws"]
 [ext_resource type="Script" uid="uid://d3jq5cx8m2dvl" path="res://FallingBlocks/Scripts/blocks_spawner.gd" id="1_dprjx"]
 [ext_resource type="PackedScene" uid="uid://bwdecjbbtgri6" path="res://FallingBlocks/Blocks/Block1.tscn" id="2_h3tpo"]
 [ext_resource type="Script" uid="uid://bewgyl0s3x4q5" path="res://FallingBlocks/mountain.gd" id="2_qobxd"]
 [ext_resource type="Script" uid="uid://drign7lf3nhos" path="res://FallingBlocks/Scripts/camera_orbiting.gd" id="3_1plht"]
+[ext_resource type="Environment" uid="uid://cgvnbljkuv7j0" path="res://FallingBlocks/environment.tres" id="6_d73qp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0x1ws"]
 render_priority = 0
@@ -130,34 +131,6 @@ shadow_mesh = SubResource("ArrayMesh_do7pu")
 [sub_resource type="BoxShape3D" id="BoxShape3D_dprjx"]
 size = Vector3(3.27612, 0.5, 3.37262)
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0x1ws"]
-in_3d_space = true
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qobxd"]
-panorama = SubResource("NoiseTexture2D_0x1ws")
-
-[sub_resource type="Sky" id="Sky_d73qp"]
-sky_material = SubResource("PanoramaSkyMaterial_qobxd")
-
-[sub_resource type="Environment" id="Environment_dprjx"]
-background_mode = 2
-background_color = Color(1, 1, 1, 1)
-background_energy_multiplier = 9.15
-sky = SubResource("Sky_d73qp")
-ambient_light_source = 1
-tonemap_mode = 3
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 0.29
-glow_strength = 0.0
-glow_bloom = 1.0
-fog_enabled = true
-fog_light_color = Color(0, 0.629484, 0, 1)
-fog_light_energy = 0.36
-fog_sun_scatter = 0.75
-fog_density = 0.0
-fog_height_density = 0.8163
-
 [node name="FallingBlocksScene" type="Node3D"]
 
 [node name="Environment" type="Node3D" parent="."]
@@ -206,7 +179,7 @@ height = 8.0
 speed = 0.25
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_dprjx")
+environment = ExtResource("6_d73qp")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.16582, 0)

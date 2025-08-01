@@ -31,6 +31,7 @@ func _physics_process(delta):
 		if global_position.y < float(previous_block_y):
 			has_checked_platform_height = true
 			print("block dropped below previous one")
+			SignalBus.gameOver.emit()
 			if spawner and is_instance_valid(spawner):
 				spawner._platform_not_placed()
 	
@@ -39,6 +40,7 @@ func _physics_process(delta):
 			if not has_checked_platform_height:
 				has_checked_platform_height = true
 				print("blocked dropped below first one")
+				SignalBus.gameOver.emit()
 				if spawner and is_instance_valid(spawner):
 					spawner._platform_not_placed()
 	if is_landed:
@@ -55,6 +57,7 @@ func _physics_process(delta):
 		land()
 
 func land():
+	SignalBus.platformDone.emit()	
 	if is_landed:
 		return
 	
@@ -67,8 +70,8 @@ func land():
 	rider_position = Vector2.ZERO
 	
 	print("landed :3")
-	if spawner and is_instance_valid(spawner) and spawner.is_inside_tree():
-		spawner.spawn_block()
+	#if spawner and is_instance_valid(spawner) and spawner.is_inside_tree():
+		#spawner.spawn_block()
 
 func handle_debug_input(delta):
 	var input_dir := Vector2.ZERO

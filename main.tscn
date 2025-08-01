@@ -1,9 +1,27 @@
-[gd_scene load_steps=12 format=3 uid="uid://jeth6hp8pbu3"]
+[gd_scene load_steps=22 format=3 uid="uid://jeth6hp8pbu3"]
 
 [ext_resource type="Theme" uid="uid://bb74rah8n7o5x" path="res://Theme.tres" id="1_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://8h3hxuwkofx6" path="res://Arena.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://bu0b2cvqebt01" path="res://main.gd" id="1_7mycd"]
+[ext_resource type="PackedScene" uid="uid://8h3hxuwkofx6" path="res://arena/Arena.tscn" id="1_ig7tw"]
+[ext_resource type="Shader" uid="uid://b7ylttcjjhm17" path="res://background.gdshader" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dhhhsdiubg8h" path="res://FallingBlocks/fallingBlockScene.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://drw0u0trca3q" path="res://Player/FSM/StateMachine.gd" id="2_272bh"]
+[ext_resource type="Script" uid="uid://dw045br18flj6" path="res://GameStates/StartState.gd" id="3_efxa6"]
 [ext_resource type="Script" uid="uid://drign7lf3nhos" path="res://FallingBlocks/Scripts/camera_orbiting.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://dgsfskwfqnpll" path="res://GameStates/InterState.gd" id="4_dg77c"]
+[ext_resource type="PackedScene" uid="uid://buvrp1m3nq40a" path="res://Animations/StartingAnimation.tscn" id="4_ycdy4"]
+[ext_resource type="Script" uid="uid://dcii83uba36ms" path="res://GameStates/GameOverState.gd" id="5_ycdy4"]
+[ext_resource type="Script" uid="uid://d0k67lx4tmh4i" path="res://GameStates/FallingState.gd" id="6_w48qg"]
+[ext_resource type="PackedScene" uid="uid://ccmo8cbr53nrq" path="res://Animations/InterAnimation.tscn" id="6_ycdy4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
+shader = ExtResource("1_lquwl")
+shader_parameter/background_color = Color(0.0186667, 0.08, 0, 1)
+shader_parameter/line_color = Color(0.0500001, 1, 0, 1)
+shader_parameter/line_freq = 9.21
+shader_parameter/height = 0.6
+shader_parameter/speed = 0.09
+shader_parameter/scale = Vector2(2, 16)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0xm2m"]
 viewport_path = NodePath("2D")
@@ -42,9 +60,15 @@ fog_sun_scatter = 0.75
 fog_density = 0.0
 fog_height_density = 0.8163
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("SM", "HUD")]
+script = ExtResource("1_7mycd")
+SM = NodePath("StateMachine")
+HUD = NodePath("HUD")
+
+[node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Control" type="PanelContainer" parent="."]
+material = SubResource("ShaderMaterial_7mycd")
 offset_right = 720.0
 offset_bottom = 720.0
 size_flags_horizontal = 3
@@ -71,6 +95,7 @@ layout_mode = 2
 texture = SubResource("ViewportTexture_lquwl")
 
 [node name="2D" type="SubViewport" parent="."]
+transparent_bg = true
 size = Vector2i(876, 714)
 
 [node name="Arena" parent="2D" instance=ExtResource("1_ig7tw")]
@@ -83,13 +108,14 @@ size = Vector2i(400, 450)
 [node name="Camera" type="Node3D" parent="3D"]
 transform = Transform3D(0.707107, -0.121949, 0.696512, 0, 0.985016, 0.172462, -0.707107, -0.121949, 0.696512, 5.09455, 5.64783, 5.97738)
 
-[node name="Camera3D" type="Camera3D" parent="3D/Camera"]
+[node name="Camera3D" type="Camera3D" parent="3D/Camera" node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, 0, 1, 1, -1.325, -0.232)
 current = true
 script = ExtResource("3_h2yge")
-distance = 5.0
-height = 8.0
-speed = 0.25
+target = NodePath("../../FallingBlocksScene")
+distance = 5.565
+height = 6.22
+speed = 0.16
 
 [node name="3Dcam" type="SubViewport" parent="."]
 size = Vector2i(400, 260)
@@ -101,3 +127,31 @@ projection = 1
 current = true
 fov = 37.8493
 size = 7.316
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_272bh")
+initial_state = NodePath("StartState")
+metadata/_custom_type_script = "uid://drw0u0trca3q"
+
+[node name="StartState" type="Node" parent="StateMachine" node_paths=PackedStringArray("body")]
+script = ExtResource("3_efxa6")
+starAnimScene = ExtResource("4_ycdy4")
+body = NodePath("../..")
+metadata/_custom_type_script = "uid://dw045br18flj6"
+
+[node name="InterState" type="Node" parent="StateMachine" node_paths=PackedStringArray("body")]
+script = ExtResource("4_dg77c")
+nbTypesOfPlatforms = 1
+interAnimScene = ExtResource("6_ycdy4")
+body = NodePath("../..")
+metadata/_custom_type_script = "uid://dgsfskwfqnpll"
+
+[node name="GameOverState" type="Node" parent="StateMachine" node_paths=PackedStringArray("body")]
+script = ExtResource("5_ycdy4")
+body = NodePath("../..")
+metadata/_custom_type_script = "uid://dcii83uba36ms"
+
+[node name="FallingState" type="Node" parent="StateMachine" node_paths=PackedStringArray("body")]
+script = ExtResource("6_w48qg")
+body = NodePath("../..")
+metadata/_custom_type_script = "uid://d0k67lx4tmh4i"

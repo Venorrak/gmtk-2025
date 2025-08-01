@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyr7njoan6e7u"]
+
+[ext_resource type="Script" uid="uid://bhviq4ya4cehh" path="res://Walls/walls.gd" id="1_4lhit"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4lhit"]
+radius = 355.0
+
+[node name="Circle" type="Node2D" node_paths=PackedStringArray("zone")]
+script = ExtResource("1_4lhit")
+zone = NodePath("Area2D")
+metadata/_custom_type_script = "uid://bhviq4ya4cehh"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_4lhit")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, -355, 92, -343, 178, -307, 251, -251, 306, -179, 343, -92, 355, 0, 343, 91, 308, 177, 251, 251, 177, 308, 92, 343, 0, 355, -92, 343, -179, 307, -252, 251, -308, 177, -343, 92, -355, 0, -343, -92, -307, -178, -250, -252, -178, -307, -92, -343, 0, -355, 0, -361, -93, -347, -180, -311, -254, -255, -312, -182, -350, -93, -362, 0, -351, 94, -314, 182, -257, 257, -182, 312, -93, 350, 0, 364, 95, 352, 182, 316, 258, 257, 316, 181, 354, 93, 365, 0, 352, -94, 315, -183, 261, -256, 184, -317, 93, -351, 0, -361)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, -355, 92, -343, 178, -307, 251, -251, 306, -179, 343, -92, 355, 0, 343, 91, 308, 177, 251, 251, 177, 308, 92, 343, 0, 355, -92, 343, -179, 307, -252, 251, -308, 177, -343, 92, -355, 0, -343, -92, -307, -178, -250, -252, -178, -307, -92, -343, 0, -355, 0, -361, -93, -347, -180, -311, -254, -255, -312, -182, -350, -93, -362, 0, -351, 94, -314, 182, -257, 257, -182, 312, -93, 350, 0, 364, 95, 352, 182, 316, 258, 257, 316, 181, 354, 93, 365, 0, 352, -94, 315, -183, 261, -256, 184, -317, 93, -351, 0, -361)

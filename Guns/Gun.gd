@@ -12,6 +12,8 @@ var timer : Timer = Timer.new()
 var cannons : Array[Node2D] = []
 var target = null
 
+var timeToShoot = false
+
 @export var bullet : PackedScene
 
 func _ready() -> void:
@@ -21,6 +23,8 @@ func _ready() -> void:
 	add_child(timer)
 	setupCannons()
 	setupDetector()
+	SignalBus.platformDone.connect(stopShooting)
+	SignalBus.dropPlatform.connect(startShooting)
 	
 
 func setupDetector() -> void:
@@ -61,7 +65,7 @@ func _draw() -> void:
 	draw_circle(position, detectionRadius, Color.RED, false, 3)
 
 func shoot(bullet : PackedScene) -> void:
-	if canShoot:
+	if canShoot && get_parent().visible && timeToShoot:
 		for s in cannons:
 			var dubBullet = bullet.instantiate()
 			get_tree().root.get_node("Main/2D").add_child(dubBullet)
@@ -71,7 +75,7 @@ func shoot(bullet : PackedScene) -> void:
 		timer.start()
 	
 func can_shoot() -> bool:
-	return canShoot
+	return canShoot && get_parent().visible && timeToShoot
 
 func _timerCallback() -> void:
 	canShoot = true
@@ -83,3 +87,9 @@ func _bodyEntered(body : Node2D) -> void:
 func _bodyExited(body : Node2D) -> void:
 	if body.is_in_group("player"):
 		target = null 
+
+func stopShooting() -> void:
+	timeToShoot = false
+
+func startShooting() -> void:
+	timeToShoot = true

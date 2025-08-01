@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://kneudomrfmsl"]
+
+[ext_resource type="Script" uid="uid://bhviq4ya4cehh" path="res://Walls/walls.gd" id="1_g2ln7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wsxar"]
+size = Vector2(710, 710)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2ln7"]
+size = Vector2(710, 20)
+
+[node name="Square" type="Node2D" node_paths=PackedStringArray("zone")]
+script = ExtResource("1_g2ln7")
+zone = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_wsxar")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(0, -365)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("RectangleShape2D_g2ln7")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D4"]
+polygon = PackedVector2Array(-375, -10, 375, -10, 375, 10, -375, 10, -375, -10)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-365, 0)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_g2ln7")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
+polygon = PackedVector2Array(-375, -10, 375, -10, 375, 10, -375, 10, -375, -10)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(365, 0)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_g2ln7")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
+polygon = PackedVector2Array(-375, -10, 375, -10, 375, 10, -375, 10, -375, -10)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 365)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_g2ln7")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-375, -10, 375, -10, 375, 10, -375, 10, -375, -10)
