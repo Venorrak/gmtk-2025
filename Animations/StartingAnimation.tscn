@@ -3,6 +3,21 @@
 [ext_resource type="Script" uid="uid://ctuhe1lhlm2nj" path="res://Animations/AnimationBase.gd" id="1_ualsx"]
 [ext_resource type="Shader" uid="uid://d1afbvfeg3l66" path="res://Animations/animShader.gdshader" id="2_kbdln"]
 
+[sub_resource type="Animation" id="Animation_kbdln"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20.285]
+}
+
 [sub_resource type="Animation" id="Animation_qplsf"]
 resource_name = "start"
 tracks/0/type = "value"
@@ -30,21 +45,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"queue_end"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_kbdln"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [20.285]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qcx6e"]
