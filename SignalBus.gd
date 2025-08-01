@@ -6,3 +6,5 @@ signal platformDone() #called by platform thingy
 signal newPlatfrom(index : int) # called by SM
 signal dropPlatform() # called by SM
 signal gameOver() # callded by platform thingy
+
+signal Change3DCameraTarget(body : Node3D)

@@ -29,6 +29,8 @@ window/stretch/mode="canvas_items"
 
 player="the player"
 enemy=""
+block=""
+Mountain=""
 
 [input]
 

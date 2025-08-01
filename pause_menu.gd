@@ -27,7 +27,8 @@ func toggleTime():
 	if Engine.time_scale == 0.0:
 		Engine.time_scale = 1.0 
 	else:
-		Engine.time_scale = 0.0 
+		Engine.time_scale = 0.0
+		$PanelSettings/HSlider.grab_focus()
 		pausedTime = inPauseMenu
 
 func _on_quit_game_pressed():
