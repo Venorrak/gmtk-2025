@@ -46,14 +46,13 @@ corner_radius_bottom_left = 15
 shadow_size = 2
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_ycdy4"]
+color = Color(1, 1, 1, 1)
 thickness = 8
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_w48qg"]
-color = Color(1, 1, 1, 1)
 thickness = 6
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_vivmo"]
-color = Color(1, 1, 1, 1)
 thickness = 6
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2cqfq"]
@@ -140,6 +139,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 14
 
+[node name="Button2" type="Button" parent="UI/Pause/MainButtons"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kek77")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4c57u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_efxa6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dg77c")
+text = "Settings"
+
 [node name="Button3" type="Button" parent="UI/Pause/MainButtons"]
 layout_mode = 2
 size_flags_vertical = 4
@@ -178,6 +191,24 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 50
 text = "Settings"
 horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="UI/Pause/PanelSettings"]
+layout_mode = 0
+offset_left = 19.5
+offset_top = 477.0
+offset_right = 253.5
+offset_bottom = 535.0
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kek77")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4c57u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_efxa6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dg77c")
+text = "Back"
 
 [node name="Label2" type="Label" parent="UI/Pause/PanelSettings"]
 layout_mode = 0
