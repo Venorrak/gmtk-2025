@@ -1,0 +1,231 @@
+[gd_scene load_steps=14 format=3 uid="uid://hobpokn16d78"]
+
+[ext_resource type="Script" uid="uid://c36w0sap03ugl" path="res://UI/main_menu.gd" id="1_uahxu"]
+[ext_resource type="Script" uid="uid://dyytfbnmgrwg2" path="res://UI/audio_control.gd" id="2_b37jj"]
+[ext_resource type="AudioStream" uid="uid://bhecarosbf7fl" path="res://Audio/Spazzmatica Polka.mp3" id="3_8aown"]
+[ext_resource type="Script" uid="uid://cfkcrkmsuo6jg" path="res://UI/fullscreen_control.gd" id="3_t6syg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f0jmi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f0jmi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uahxu"]
+bg_color = Color(0.737193, 0.737193, 0.737193, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b37jj"]
+bg_color = Color(0.442911, 0.442911, 0.442911, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0jmi"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 2
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_uahxu"]
+color = Color(1, 1, 1, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_b37jj"]
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_8aown"]
+thickness = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6syg"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uahxu")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_f0jmi")
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 499.0
+offset_right = -1006.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="Button" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f0jmi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uahxu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b37jj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_f0jmi")
+text = "Start Game"
+
+[node name="Button2" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f0jmi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uahxu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b37jj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_f0jmi")
+text = "Settings"
+
+[node name="Button3" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f0jmi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uahxu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b37jj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_f0jmi")
+text = "Exit Game"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = 30.0
+offset_right = -645.0
+offset_bottom = -553.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "GAME NAME"
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelSettings" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -397.5
+offset_top = -279.0
+offset_right = 397.5
+offset_bottom = 279.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PanelSettings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -398.0
+offset_right = 398.0
+offset_bottom = 86.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="PanelSettings"]
+offset_left = 19.5
+offset_top = 477.0
+offset_right = 253.5
+offset_bottom = 535.0
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f0jmi")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uahxu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b37jj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_f0jmi")
+text = "Back"
+
+[node name="Label2" type="Label" parent="PanelSettings"]
+layout_mode = 0
+offset_left = 264.5
+offset_top = 164.0
+offset_right = 371.5
+offset_bottom = 187.0
+text = "Music volume"
+
+[node name="HSlider" type="HSlider" parent="PanelSettings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -12.0
+offset_top = 143.0
+offset_right = 136.0
+offset_bottom = 212.0
+grow_horizontal = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_uahxu")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_b37jj")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_8aown")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("2_b37jj")
+audio_bus_name = "Music"
+
+[node name="FullscreenControl" type="CheckButton" parent="PanelSettings"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.5
+offset_top = 202.0
+offset_right = 140.5
+offset_bottom = 233.0
+grow_horizontal = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t6syg")
+text = "Fullscreen"
+script = ExtResource("3_t6syg")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8aown")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[connection signal="pressed" from="MainButtons/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainButtons/Button2" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MainButtons/Button3" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="PanelSettings/Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="PanelSettings/HSlider" to="PanelSettings/HSlider" method="_on_value_changed"]
+[connection signal="toggled" from="PanelSettings/FullscreenControl" to="PanelSettings/FullscreenControl" method="_on_toggled"]
