@@ -1,22 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://bu33pmneuxmsj"]
 
 [ext_resource type="Script" uid="uid://b0cinx5ocx6lo" path="res://Bullets/Wavy/WavyBullet.gd" id="1_hxja6"]
-[ext_resource type="Texture2D" uid="uid://dvmauv1qi1p3x" path="res://icon.svg" id="2_rt40v"]
+[ext_resource type="Texture2D" uid="uid://cc2xxl64ca7lj" path="res://Sprite/miscsprites/forkbomb.png" id="2_rt40v"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_a0aea"]
-radius = 13.0384
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0aea"]
+size = Vector2(22.5, 10)
 
 [node name="WavyBullet" type="Node2D"]
 script = ExtResource("1_hxja6")
 metadata/_custom_type_script = "uid://c1q1rdvrqjev5"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+modulate = Color(0, 0.8, 1, 1)
 texture = ExtResource("2_rt40v")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_a0aea")
+shape = SubResource("RectangleShape2D_a0aea")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

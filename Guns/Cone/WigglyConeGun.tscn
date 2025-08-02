@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://4dgyqva2ybnh"]
+[gd_scene load_steps=4 format=3 uid="uid://4dgyqva2ybnh"]
 
 [ext_resource type="Script" uid="uid://ce7kg7dtcetgx" path="res://Guns/Gun.gd" id="1_es7g5"]
 [ext_resource type="PackedScene" uid="uid://bu33pmneuxmsj" path="res://Bullets/Wavy/WavyBullet.tscn" id="2_n1nym"]
+[ext_resource type="Texture2D" uid="uid://em3s8rqj3i5" path="res://Sprite/miscsprites/miscsprite3.png" id="2_wm0ur"]
 
 [node name="WigglyConeGun" type="Node2D"]
 script = ExtResource("1_es7g5")
@@ -9,7 +10,8 @@ nbCannons = 3
 angle = 80.0
 cone = true
 cooldown = 0.8
-radius = 1.0
+radius = 40.0
 detectionRadius = 450.0
+cannonSprite = ExtResource("2_wm0ur")
 bullet = ExtResource("2_n1nym")
 metadata/_custom_type_script = "uid://ce7kg7dtcetgx"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://mclygkgt8bui"]
+[gd_scene load_steps=4 format=3 uid="uid://mclygkgt8bui"]
 
 [ext_resource type="Script" uid="uid://ce7kg7dtcetgx" path="res://Guns/Gun.gd" id="1_ntcla"]
+[ext_resource type="Texture2D" uid="uid://em3s8rqj3i5" path="res://Sprite/miscsprites/miscsprite3.png" id="2_e27j7"]
 [ext_resource type="PackedScene" uid="uid://cwlnqm5kduj5w" path="res://Bullets/Straight/StraightBullet.tscn" id="2_yoycq"]
 
 [node name="CrossGun" type="Node2D"]
@@ -8,7 +9,8 @@ script = ExtResource("1_ntcla")
 nbCannons = 4
 angle = 360.0
 rotationSpeed = 25.0
-radius = 50.0
+radius = 40.0
 detectionRadius = 800.0
+cannonSprite = ExtResource("2_e27j7")
 bullet = ExtResource("2_yoycq")
 metadata/_custom_type_script = "uid://ce7kg7dtcetgx"

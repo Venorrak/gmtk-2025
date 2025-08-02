@@ -7,6 +7,8 @@ class_name Gun extends Node2D
 @export var rotationSpeed : float = 0
 @export var radius : float = 100
 @export var detectionRadius : float = 200
+@export var cannonSprite : Texture2D
+
 var canShoot : bool = true
 var timer : Timer = Timer.new()
 var cannons : Array[Node2D] = []
@@ -47,9 +49,16 @@ func setupCannons() -> void:
 		
 	for i in nbCannons:
 		var spawnPoint : Node2D = Node2D.new()
+		var newcannonSprite : Sprite2D = Sprite2D.new()
+		newcannonSprite.texture = cannonSprite
+		newcannonSprite.scale = Vector2(4, 4)
+		newcannonSprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		newcannonSprite.offset = Vector2(0, -2)
+		newcannonSprite.modulate = Color("00ccff")
 		var pos : Vector2 = Vector2(radius, 0).rotated(step * i)
 		spawnPoint.position = pos
 		spawnPoint.rotation = pos.angle()
+		spawnPoint.add_child(newcannonSprite)
 		add_child(spawnPoint)
 		cannons.append(spawnPoint)
 

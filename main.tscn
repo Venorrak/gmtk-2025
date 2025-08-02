@@ -19,8 +19,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("1_lquwl")
-shader_parameter/background_color = Color(0.0186667, 0.08, 0, 1)
-shader_parameter/line_color = Color(0.0500001, 1, 0, 1)
+shader_parameter/background_color = Color(0.0373334, 0, 0.14, 1)
+shader_parameter/line_color = Color(0.454902, 0, 0.65098, 1)
 shader_parameter/line_freq = 9.21
 shader_parameter/height = 0.6
 shader_parameter/speed = 0.09

@@ -17,3 +17,4 @@ func reset() -> void:
 		currentGun.queue_free()
 	currentGun = Guns.pick_random().instantiate()
 	add_child(currentGun)
+	move_child(currentGun, 0)

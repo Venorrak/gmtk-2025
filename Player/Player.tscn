@@ -119,8 +119,8 @@ initial_state = NodePath("IdleState")
 
 [node name="DodgeState" type="Node" parent="SM" node_paths=PackedStringArray("animated_sprite", "body")]
 script = ExtResource("3_vlldt")
-dodgeSpeed = 2000.0
-dodgeTime = 0.4
+dodgeSpeed = 3000.0
+dodgeTime = 0.5
 animated_sprite = NodePath("../../AnimatedSprite2D")
 body = NodePath("../..")
 
@@ -138,6 +138,7 @@ body = NodePath("../..")
 
 [node name="WalkingState" type="Node" parent="SM" node_paths=PackedStringArray("animated_sprite", "animation_player", "body")]
 script = ExtResource("6_0j2ni")
+speed = 1500.0
 animated_sprite = NodePath("../../AnimatedSprite2D")
 animation_player = NodePath("../../AnimationPlayer")
 body = NodePath("../..")

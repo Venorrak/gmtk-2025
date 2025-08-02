@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7vdcldd7qrht"]
+[gd_scene load_steps=4 format=3 uid="uid://c7vdcldd7qrht"]
 
 [ext_resource type="Script" uid="uid://ce7kg7dtcetgx" path="res://Guns/Gun.gd" id="1_a6uip"]
+[ext_resource type="Texture2D" uid="uid://em3s8rqj3i5" path="res://Sprite/miscsprites/miscsprite3.png" id="2_87lqq"]
 [ext_resource type="PackedScene" uid="uid://c7408q8fvvv4y" path="res://Bullets/Double/Nearing/DoubleNearingBullet.tscn" id="2_akuee"]
 
 [node name="DoubleNGun" type="Node2D"]
 script = ExtResource("1_a6uip")
 cooldown = 1.5
-radius = 1.0
+radius = 40.0
 detectionRadius = 800.0
+cannonSprite = ExtResource("2_87lqq")
 bullet = ExtResource("2_akuee")
 metadata/_custom_type_script = "uid://ce7kg7dtcetgx"
