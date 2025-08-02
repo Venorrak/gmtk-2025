@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="GMTK-2025"
-run/main_scene="res://main.tscn"
+run/main_scene="uid://hobpokn16d78"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="uid://c7kivr0a5gdev"
+config/icon="uid://4frhvvxcjdo6"
 
 [autoload]
 
 SignalBus="*res://SignalBus.gd"
+AudioManager="*res://AudioManager/AudioManager.tscn"
 
 [display]
 

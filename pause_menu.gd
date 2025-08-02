@@ -2,6 +2,7 @@ extends Control
 
 @onready var pause = $"."
 @onready var main_buttons = $MainButtons
+@export var menuScene : PackedScene
 
 var inPauseMenu := false
 var pausedTime = false
@@ -31,5 +32,13 @@ func toggleTime():
 		$PanelSettings/HSlider.grab_focus()
 		pausedTime = inPauseMenu
 
-func _on_quit_game_pressed():
+func _on_quit_button_up() -> void:
 	get_tree().quit()
+
+func _on_restart_button_up() -> void:
+	SignalBus.score = 0
+	get_tree().reload_current_scene()
+
+func _on_menu_button_up() -> void:
+	SignalBus.score = 0
+	get_tree().change_scene_to_packed(menuScene)

@@ -155,6 +155,7 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q12mm"]
+resource_local_to_scene = true
 shader = ExtResource("2_0nfej")
 shader_parameter/use_sprite_alpha = true
 shader_parameter/use_transition_texture = false

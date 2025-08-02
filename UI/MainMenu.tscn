@@ -1,51 +1,114 @@
-[gd_scene load_steps=14 format=3 uid="uid://hobpokn16d78"]
+[gd_scene load_steps=23 format=3 uid="uid://hobpokn16d78"]
 
-[ext_resource type="Script" uid="uid://c36w0sap03ugl" path="res://UI/main_menu.gd" id="1_uahxu"]
-[ext_resource type="Script" uid="uid://dyytfbnmgrwg2" path="res://UI/audio_control.gd" id="2_b37jj"]
-[ext_resource type="AudioStream" uid="uid://bhecarosbf7fl" path="res://Audio/Spazzmatica Polka.mp3" id="3_8aown"]
-[ext_resource type="Script" uid="uid://cfkcrkmsuo6jg" path="res://UI/fullscreen_control.gd" id="3_t6syg"]
+[ext_resource type="Script" uid="uid://dn0td0v27apb6" path="res://UI/main_menu.gd" id="1_uahxu"]
+[ext_resource type="Script" uid="uid://c85yxaouivtfy" path="res://UI/music_control.gd" id="2_b37jj"]
+[ext_resource type="Texture2D" uid="uid://blxcr7xghke2c" path="res://Sprite/intro/sky.png" id="2_t4ff4"]
+[ext_resource type="Script" uid="uid://ck3pjawuj4osq" path="res://UI/fullscreen_control.gd" id="3_t6syg"]
+[ext_resource type="Texture2D" uid="uid://doqrepl8177w8" path="res://Sprite/intro/mountain3.png" id="3_w5vcv"]
+[ext_resource type="Script" uid="uid://boyncuja5e588" path="res://UI/sfx_control.gd" id="3_y6s48"]
+[ext_resource type="Texture2D" uid="uid://doyns6e4omkdm" path="res://Sprite/intro/mountain2.png" id="4_d2d4f"]
+[ext_resource type="Texture2D" uid="uid://cmueajr8635ag" path="res://Sprite/intro/mountain1.png" id="5_6vw7e"]
+[ext_resource type="Texture2D" uid="uid://b7tt4gjsv2a57" path="res://Sprite/Buttons/play-button.png" id="6_avhca"]
+[ext_resource type="Texture2D" uid="uid://dfqk5vvwuoak6" path="res://Sprite/Buttons/play-button-pressed.png" id="7_x8sin"]
+[ext_resource type="Texture2D" uid="uid://caf4ewhe5ltco" path="res://Sprite/Buttons/play-button-focus.png" id="8_fxi16"]
+[ext_resource type="Texture2D" uid="uid://cwqvgdtitdoi3" path="res://Sprite/Buttons/options-button.png" id="9_vsl72"]
+[ext_resource type="Texture2D" uid="uid://bjlrnh5owhp34" path="res://Sprite/Buttons/options-button-pressed.png" id="10_yndlu"]
+[ext_resource type="Texture2D" uid="uid://dj2h7p4qi5utl" path="res://Sprite/Buttons/quit-button.png" id="11_v87kc"]
+[ext_resource type="Texture2D" uid="uid://bflsoeiwwaapd" path="res://Sprite/Buttons/quit-button-pressed.png" id="12_h2xek"]
+[ext_resource type="Texture2D" uid="uid://dl6vakssrr6if" path="res://Sprite/Buttons/back-button.png" id="16_fxi16"]
+[ext_resource type="Texture2D" uid="uid://xrajdanxi4qy" path="res://Sprite/Buttons/back-button-pressed.png" id="17_vsl72"]
+
+[sub_resource type="Animation" id="Animation_csrb3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mountains/BACK:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 145)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mountains/MIDPARENT:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mountains/FRONTPARENT:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qrfef"]
+resource_name = "mountains"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mountains/BACK:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 145), Vector2(-1280, 145)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mountains/MIDPARENT:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2560, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mountains/FRONTPARENT:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-5120, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wxllh"]
+_data = {
+&"RESET": SubResource("Animation_csrb3"),
+&"mountains": SubResource("Animation_qrfef")
+}
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f0jmi"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f0jmi"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uahxu"]
-bg_color = Color(0.737193, 0.737193, 0.737193, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-shadow_size = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b37jj"]
-bg_color = Color(0.442911, 0.442911, 0.442911, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-shadow_size = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0jmi"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-shadow_size = 2
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_uahxu"]
-color = Color(1, 1, 1, 1)
-thickness = 8
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_b37jj"]
-thickness = 6
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_8aown"]
-thickness = 6
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6syg"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("backButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -53,6 +116,104 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uahxu")
+backButton = NodePath("PanelSettings/VBoxContainer/VBoxContainer/Back")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wxllh")
+}
+
+[node name="Mountains" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Mountains"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 32.0
+anchor_bottom = 18.05
+offset_top = 409.0
+color = Color(0.027451, 0.0196078, 0.0470588, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Mountains"]
+modulate = Color(0.178133, 0.175755, 0.176348, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 32.0
+anchor_bottom = 18.025
+offset_right = 7.0
+offset_bottom = -359.0
+texture = ExtResource("2_t4ff4")
+
+[node name="BACK" type="TextureRect" parent="Mountains"]
+modulate = Color(0.415686, 0.25098, 0.501961, 0.866667)
+layout_mode = 0
+offset_top = 145.0
+offset_right = 2560.0
+offset_bottom = 423.0
+texture = ExtResource("3_w5vcv")
+
+[node name="MIDPARENT" type="Control" parent="Mountains"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MID" type="TextureRect" parent="Mountains/MIDPARENT"]
+modulate = Color(0.302315, 0.173526, 0.369224, 1)
+layout_mode = 0
+offset_left = -5.04883
+offset_top = 145.0
+offset_right = 2554.95
+offset_bottom = 423.0
+texture = ExtResource("4_d2d4f")
+stretch_mode = 1
+
+[node name="MID2" type="TextureRect" parent="Mountains/MIDPARENT"]
+modulate = Color(0.302315, 0.173526, 0.369224, 1)
+layout_mode = 0
+offset_left = 2555.0
+offset_top = 145.0
+offset_right = 5115.0
+offset_bottom = 423.0
+texture = ExtResource("4_d2d4f")
+stretch_mode = 1
+
+[node name="FRONTPARENT" type="Control" parent="Mountains"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FRONT" type="TextureRect" parent="Mountains/FRONTPARENT"]
+modulate = Color(0.175323, 0.0913615, 0.218845, 1)
+layout_mode = 0
+offset_left = -1280.0
+offset_top = 145.0
+offset_right = 1280.0
+offset_bottom = 423.0
+texture = ExtResource("5_6vw7e")
+stretch_mode = 1
+
+[node name="FRONT2" type="TextureRect" parent="Mountains/FRONTPARENT"]
+modulate = Color(0.175323, 0.0913615, 0.218845, 1)
+layout_mode = 0
+offset_left = 1280.0
+offset_top = 145.0
+offset_right = 3840.0
+offset_bottom = 423.0
+texture = ExtResource("5_6vw7e")
+stretch_mode = 1
+
+[node name="FRONT3" type="TextureRect" parent="Mountains/FRONTPARENT"]
+modulate = Color(0.175323, 0.0913615, 0.218845, 1)
+layout_mode = 0
+offset_left = 3840.0
+offset_top = 145.0
+offset_right = 6400.0
+offset_bottom = 423.0
+texture = ExtResource("5_6vw7e")
+stretch_mode = 1
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -68,55 +229,30 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = 499.0
-offset_right = -1006.0
-offset_bottom = -86.0
+offset_left = 17.0
+offset_top = 423.0
+offset_right = -975.0
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 14
 
-[node name="Button" type="Button" parent="MainButtons"]
+[node name="Start" type="TextureButton" parent="MainButtons"]
 layout_mode = 2
-size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = SubResource("StyleBoxEmpty_f0jmi")
-theme_override_styles/hover = SubResource("StyleBoxFlat_uahxu")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b37jj")
-theme_override_styles/normal = SubResource("StyleBoxFlat_f0jmi")
-text = "Start Game"
+texture_normal = ExtResource("6_avhca")
+texture_pressed = ExtResource("7_x8sin")
+texture_focused = ExtResource("8_fxi16")
 
-[node name="Button2" type="Button" parent="MainButtons"]
+[node name="Settings" type="TextureButton" parent="MainButtons"]
 layout_mode = 2
-size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = SubResource("StyleBoxEmpty_f0jmi")
-theme_override_styles/hover = SubResource("StyleBoxFlat_uahxu")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b37jj")
-theme_override_styles/normal = SubResource("StyleBoxFlat_f0jmi")
-text = "Settings"
+texture_normal = ExtResource("9_vsl72")
+texture_pressed = ExtResource("10_yndlu")
+texture_focused = ExtResource("8_fxi16")
 
-[node name="Button3" type="Button" parent="MainButtons"]
+[node name="Exit" type="TextureButton" parent="MainButtons"]
 layout_mode = 2
-size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = SubResource("StyleBoxEmpty_f0jmi")
-theme_override_styles/hover = SubResource("StyleBoxFlat_uahxu")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b37jj")
-theme_override_styles/normal = SubResource("StyleBoxFlat_f0jmi")
-text = "Exit Game"
+texture_normal = ExtResource("11_v87kc")
+texture_pressed = ExtResource("12_h2xek")
+texture_focused = ExtResource("8_fxi16")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -139,94 +275,88 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -397.5
+offset_left = -205.5
 offset_top = -279.0
-offset_right = 397.5
+offset_right = 205.5
 offset_bottom = 279.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="PanelSettings"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -398.0
-offset_right = 398.0
-offset_bottom = 86.0
-grow_horizontal = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelSettings"]
+layout_mode = 0
+offset_right = 411.0
+offset_bottom = 557.0
+
+[node name="Label" type="Label" parent="PanelSettings/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="Back" type="Button" parent="PanelSettings"]
-layout_mode = 0
-offset_left = 19.5
-offset_top = 477.0
-offset_right = 253.5
-offset_bottom = 535.0
-size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-theme_override_styles/focus = SubResource("StyleBoxEmpty_f0jmi")
-theme_override_styles/hover = SubResource("StyleBoxFlat_uahxu")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b37jj")
-theme_override_styles/normal = SubResource("StyleBoxFlat_f0jmi")
-text = "Back"
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelSettings/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="Label2" type="Label" parent="PanelSettings"]
-layout_mode = 0
-offset_left = 264.5
-offset_top = 164.0
-offset_right = 371.5
-offset_bottom = 187.0
+[node name="Label2" type="Label" parent="PanelSettings/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 text = "Music volume"
+horizontal_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="PanelSettings"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -12.0
-offset_top = 143.0
-offset_right = 136.0
-offset_bottom = 212.0
-grow_horizontal = 2
-theme_override_styles/slider = SubResource("StyleBoxLine_uahxu")
-theme_override_styles/grabber_area = SubResource("StyleBoxLine_b37jj")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_8aown")
+[node name="HSlider" type="HSlider" parent="PanelSettings/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 1
 max_value = 1.0
 step = 0.05
 value = 1.0
 script = ExtResource("2_b37jj")
-audio_bus_name = "Music"
 
-[node name="FullscreenControl" type="CheckButton" parent="PanelSettings"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -138.5
-offset_top = 202.0
-offset_right = 140.5
-offset_bottom = 233.0
-grow_horizontal = 2
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelSettings/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label3" type="Label" parent="PanelSettings/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "SFX volume"
+horizontal_alignment = 1
+
+[node name="SFXVolumeSlider" type="HSlider" parent="PanelSettings/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 1
+script = ExtResource("3_y6s48")
+metadata/_custom_type_script = "uid://boyncuja5e588"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelSettings/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="FullscreenControl" type="CheckButton" parent="PanelSettings/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_t6syg")
 text = "Fullscreen"
 script = ExtResource("3_t6syg")
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_8aown")
-autoplay = true
-bus = &"Music"
-parameters/looping = true
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelSettings/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
 
-[connection signal="pressed" from="MainButtons/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MainButtons/Button2" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="MainButtons/Button3" to="." method="_on_exit_pressed"]
-[connection signal="pressed" from="PanelSettings/Back" to="." method="_on_back_pressed"]
-[connection signal="value_changed" from="PanelSettings/HSlider" to="PanelSettings/HSlider" method="_on_value_changed"]
-[connection signal="toggled" from="PanelSettings/FullscreenControl" to="PanelSettings/FullscreenControl" method="_on_toggled"]
+[node name="Back" type="TextureButton" parent="PanelSettings/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("16_fxi16")
+texture_pressed = ExtResource("17_vsl72")
+texture_focused = ExtResource("8_fxi16")
+stretch_mode = 3
+
+[connection signal="button_up" from="MainButtons/Start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="MainButtons/Settings" to="." method="_on_settings_button_up"]
+[connection signal="button_up" from="MainButtons/Exit" to="." method="_on_exit_button_up"]
+[connection signal="value_changed" from="PanelSettings/VBoxContainer/HBoxContainer/HSlider" to="PanelSettings/VBoxContainer/HBoxContainer/HSlider" method="_on_value_changed"]
+[connection signal="toggled" from="PanelSettings/VBoxContainer/HBoxContainer3/FullscreenControl" to="PanelSettings/VBoxContainer/HBoxContainer3/FullscreenControl" method="_on_toggled"]
+[connection signal="button_up" from="PanelSettings/VBoxContainer/VBoxContainer/Back" to="." method="_on_back_button_up"]

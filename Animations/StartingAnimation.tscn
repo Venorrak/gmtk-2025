@@ -1,16 +1,16 @@
 [gd_scene load_steps=19 format=3 uid="uid://buvrp1m3nq40a"]
 
-[ext_resource type="Script" uid="uid://bu3ikcvexo6y3" path="res://Animations/AnimationBase.gd" id="1_ualsx"]
-[ext_resource type="Shader" uid="uid://grvu6jmvxiue" path="res://Animations/animShader.gdshader" id="2_kbdln"]
-[ext_resource type="Texture2D" uid="uid://dteuq7x4fqj3p" path="res://Sprite/intro/mountain3.png" id="3_cowsi"]
-[ext_resource type="Texture2D" uid="uid://bl648hkwc61rv" path="res://Sprite/intro/sky.png" id="3_yei8d"]
-[ext_resource type="Texture2D" uid="uid://b6d2q0vj772gt" path="res://Sprite/intro/mountain2.png" id="4_yei8d"]
-[ext_resource type="Texture2D" uid="uid://clurulssyueos" path="res://Sprite/intro/mountain1.png" id="5_ld8w7"]
-[ext_resource type="Texture2D" uid="uid://bda41ljxwhy1y" path="res://Sprite/intro/zerosandones.png" id="7_hnjt8"]
-[ext_resource type="Texture2D" uid="uid://bh5nfcvgkcvms" path="res://Sprite/intro/ditheredstuff.png" id="8_p2c06"]
-[ext_resource type="Texture2D" uid="uid://10kta5h5cds1" path="res://Sprite/whitehat/death/whitehat1.png" id="9_p2c06"]
-[ext_resource type="FontFile" uid="uid://b1jqwyu0ft1qk" path="res://Font/ethnocentric/Ethnocentric Rg.otf" id="10_ktf4q"]
-[ext_resource type="FontFile" uid="uid://uxcqnkg5x0x0" path="res://Font/ethnocentric/Ethnocentric Rg It.otf" id="11_yw1ld"]
+[ext_resource type="Script" uid="uid://uejjv1dfuary" path="res://Animations/StartingAnimation.gd" id="1_ktf4q"]
+[ext_resource type="Shader" uid="uid://d1afbvfeg3l66" path="res://Animations/animShader.gdshader" id="2_kbdln"]
+[ext_resource type="Texture2D" uid="uid://doqrepl8177w8" path="res://Sprite/intro/mountain3.png" id="3_cowsi"]
+[ext_resource type="Texture2D" uid="uid://blxcr7xghke2c" path="res://Sprite/intro/sky.png" id="3_yei8d"]
+[ext_resource type="Texture2D" uid="uid://doyns6e4omkdm" path="res://Sprite/intro/mountain2.png" id="4_yei8d"]
+[ext_resource type="Texture2D" uid="uid://cmueajr8635ag" path="res://Sprite/intro/mountain1.png" id="5_ld8w7"]
+[ext_resource type="Texture2D" uid="uid://dhxheugllsv08" path="res://Sprite/intro/zerosandones.png" id="7_hnjt8"]
+[ext_resource type="Texture2D" uid="uid://bk1vcksovlpvv" path="res://Sprite/intro/ditheredstuff.png" id="8_p2c06"]
+[ext_resource type="Texture2D" uid="uid://cc55uurimwqq4" path="res://Sprite/whitehat/death/whitehat1.png" id="9_p2c06"]
+[ext_resource type="FontFile" uid="uid://bse0oq3a032ab" path="res://Font/ethnocentric/Ethnocentric Rg.otf" id="10_ktf4q"]
+[ext_resource type="FontFile" uid="uid://byyqtexh1fno5" path="res://Font/ethnocentric/Ethnocentric Rg It.otf" id="11_yw1ld"]
 
 [sub_resource type="Animation" id="Animation_kbdln"]
 length = 0.001
@@ -123,36 +123,6 @@ tracks/8/keys = {
 "values": [Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_qplsf"]
-resource_name = "start"
-length = 20.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(18.9417, 19.9417),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [20.0, -0.5]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(19.9417),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_end"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_hnjt8"]
 resource_name = "background"
 length = 5.0
@@ -192,58 +162,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-2560, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_mfkdg"]
-resource_name = "text"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextBG/TextureRect3:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0666667, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.298039, 0.298039, 0.298039, 0), Color(0.298039, 0.298039, 0.298039, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextBG/TextureRect2:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0666667, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TextBG/TextureRect3:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.0666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("TextBG/TextureRect2:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.0333333, 0.0666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_ktf4q"]
@@ -310,6 +228,88 @@ tracks/4/keys = {
 "values": []
 }
 
+[sub_resource type="Animation" id="Animation_qplsf"]
+resource_name = "start"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(18.9417, 19.9417),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [20.0, -0.5]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(19.9417),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_end"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_mfkdg"]
+resource_name = "text"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextBG/TextureRect3:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.298039, 0.298039, 0.298039, 0), Color(0.298039, 0.298039, 0.298039, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextBG/TextureRect2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0666667, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextBG/TextureRect3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextBG/TextureRect2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qcx6e"]
 _data = {
 &"RESET": SubResource("Animation_kbdln"),
@@ -346,7 +346,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_ualsx")
+script = ExtResource("1_ktf4q")
 bg_animator = NodePath("BackgroundAnimation")
 text_animator = NodePath("TextAnimation")
 bgtimer = NodePath("bgtimer")

@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=3 uid="uid://0an4hy4s4i3f"]
+
+[ext_resource type="Script" uid="uid://bshw82jgbre2o" path="res://Animations/EndAnimation.gd" id="1_rigp3"]
+[ext_resource type="PackedScene" uid="uid://cpbu56wvvj2fx" path="res://UI/GameOverMenu.tscn" id="2_4svoc"]
+[ext_resource type="Shader" uid="uid://d1afbvfeg3l66" path="res://Animations/animShader.gdshader" id="2_o1kkj"]
+
+[sub_resource type="Animation" id="Animation_4svoc"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.5, 20.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"goToGameOver"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_o1kkj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_forli"]
+_data = {
+&"RESET": SubResource("Animation_o1kkj"),
+&"start": SubResource("Animation_4svoc")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iyg4u"]
+resource_local_to_scene = true
+shader = ExtResource("2_o1kkj")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 0
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/invert = true
+shader_parameter/grid_size = Vector2(48, 27)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 1.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 8
+shader_parameter/shape_feather = 0.0
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = -0.5
+shader_parameter/progress_bias = Vector2(2.55, 2.5)
+
+[node name="EndAnimation" type="Control" node_paths=PackedStringArray("Animator")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rigp3")
+gameOverScreen = ExtResource("2_4svoc")
+Animator = NodePath("AnimationPlayer")
+metadata/_custom_type_script = "uid://ctuhe1lhlm2nj"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_forli")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_iyg4u")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1280.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105604, 0.105604, 0.105604, 1)

@@ -1,11 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://jeth6hp8pbu3"]
+[gd_scene load_steps=33 format=3 uid="uid://jeth6hp8pbu3"]
 
 [ext_resource type="Theme" uid="uid://bb74rah8n7o5x" path="res://Theme.tres" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://bu0b2cvqebt01" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://8h3hxuwkofx6" path="res://arena/Arena.tscn" id="1_ig7tw"]
 [ext_resource type="Shader" uid="uid://b7ylttcjjhm17" path="res://background.gdshader" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dhhhsdiubg8h" path="res://FallingBlocks/fallingBlockScene.tscn" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://c85yxaouivtfy" path="res://UI/audio_control.gd" id="2_7mycd"]
+[ext_resource type="Script" uid="uid://c85yxaouivtfy" path="res://UI/music_control.gd" id="2_7mycd"]
 [ext_resource type="Script" uid="uid://cr0jdmd8rtkjr" path="res://pause_menu.gd" id="2_272bh"]
 [ext_resource type="Script" uid="uid://ck3pjawuj4osq" path="res://UI/fullscreen_control.gd" id="3_272bh"]
 [ext_resource type="Script" uid="uid://dw045br18flj6" path="res://GameStates/StartState.gd" id="3_efxa6"]
@@ -14,8 +14,16 @@
 [ext_resource type="PackedScene" uid="uid://buvrp1m3nq40a" path="res://Animations/StartingAnimation.tscn" id="4_ycdy4"]
 [ext_resource type="Script" uid="uid://dcii83uba36ms" path="res://GameStates/GameOverState.gd" id="5_ycdy4"]
 [ext_resource type="Script" uid="uid://d0k67lx4tmh4i" path="res://GameStates/FallingState.gd" id="6_w48qg"]
+[ext_resource type="Script" uid="uid://boyncuja5e588" path="res://UI/sfx_control.gd" id="6_yaehf"]
 [ext_resource type="PackedScene" uid="uid://ccmo8cbr53nrq" path="res://Animations/InterAnimation.tscn" id="6_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://dj2h7p4qi5utl" path="res://Sprite/Buttons/quit-button.png" id="8_ryguw"]
+[ext_resource type="Texture2D" uid="uid://bflsoeiwwaapd" path="res://Sprite/Buttons/quit-button-pressed.png" id="9_d13ii"]
+[ext_resource type="Texture2D" uid="uid://caf4ewhe5ltco" path="res://Sprite/Buttons/play-button-focus.png" id="10_1u8w0"]
 [ext_resource type="Script" uid="uid://drw0u0trca3q" path="res://Player/FSM/StateMachine.gd" id="10_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://cgsg7vvvrke0g" path="res://Sprite/Buttons/restart-button.png" id="11_0odxb"]
+[ext_resource type="Texture2D" uid="uid://dtt2oq60u7bn5" path="res://Sprite/Buttons/mm-button.png" id="11_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://dqcu3ufd1rkk" path="res://Sprite/Buttons/mm-button-pressed.png" id="12_0odxb"]
+[ext_resource type="Texture2D" uid="uid://d4kh8md2aw1yd" path="res://Sprite/Buttons/restart-button-pressed.png" id="12_lswn8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("1_lquwl")
@@ -37,30 +45,6 @@ viewport_path = NodePath("3D")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5vw27"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4c57u"]
-bg_color = Color(0.737193, 0.737193, 0.737193, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-shadow_size = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_efxa6"]
-bg_color = Color(0.442911, 0.442911, 0.442911, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-shadow_size = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg77c"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-shadow_size = 2
-
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_ycdy4"]
 thickness = 8
 
@@ -78,6 +62,13 @@ SM = NodePath("StateMachine")
 HUD = NodePath("HUD")
 
 [node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="HUD"]
+offset_left = 1040.0
+offset_top = 691.0
+offset_right = 1114.0
+offset_bottom = 714.0
+text = "Score : 0"
 
 [node name="UI" type="PanelContainer" parent="."]
 material = SubResource("ShaderMaterial_7mycd")
@@ -119,32 +110,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5vw27")
 
-[node name="MainButtons" type="VBoxContainer" parent="UI/Pause"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = 499.0
-offset_right = -1006.0
-offset_bottom = -86.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 14
-
-[node name="QuitGame" type="Button" parent="UI/Pause/MainButtons"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-theme_override_styles/hover = SubResource("StyleBoxFlat_4c57u")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_efxa6")
-theme_override_styles/normal = SubResource("StyleBoxFlat_dg77c")
-text = "Exit Game"
-
 [node name="PanelSettings" type="Panel" parent="UI/Pause"]
 layout_mode = 1
 anchors_preset = -1
@@ -157,37 +122,34 @@ offset_bottom = -77.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="UI/Pause/PanelSettings"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -398.0
-offset_right = 398.0
-offset_bottom = 86.0
-grow_horizontal = 2
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Pause/PanelSettings"]
+layout_mode = 0
+offset_right = 433.0
+offset_bottom = 557.0
+theme_override_constants/separation = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pause/PanelSettings/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="UI/Pause/PanelSettings"]
-layout_mode = 0
-offset_left = 83.0
-offset_top = 164.0
-offset_right = 190.0
-offset_bottom = 187.0
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Label2" type="Label" parent="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 text = "Music volume"
 
-[node name="HSlider" type="HSlider" parent="UI/Pause/PanelSettings"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -12.0
-offset_top = 143.0
-offset_right = 136.0
-offset_bottom = 212.0
-grow_horizontal = 2
+[node name="HSlider" type="HSlider" parent="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_ycdy4")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_w48qg")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_vivmo")
@@ -195,20 +157,51 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 script = ExtResource("2_7mycd")
-audio_bus_name = "Music"
 
-[node name="FullscreenControl" type="CheckButton" parent="UI/Pause/PanelSettings"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -138.5
-offset_top = 202.0
-offset_right = 140.5
-offset_bottom = 233.0
-grow_horizontal = 2
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="label2" type="Label" parent="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "SFX volume"
+
+[node name="SFXVolumeSlider" type="HSlider" parent="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+script = ExtResource("6_yaehf")
+metadata/_custom_type_script = "uid://boyncuja5e588"
+
+[node name="FullscreenControl" type="CheckButton" parent="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Fullscreen"
 script = ExtResource("3_272bh")
+
+[node name="MainButtons" type="VBoxContainer" parent="UI/Pause/PanelSettings/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Restart" type="TextureButton" parent="UI/Pause/PanelSettings/VBoxContainer2/MainButtons"]
+layout_mode = 2
+texture_normal = ExtResource("11_0odxb")
+texture_pressed = ExtResource("12_lswn8")
+texture_focused = ExtResource("10_1u8w0")
+stretch_mode = 5
+
+[node name="Menu" type="TextureButton" parent="UI/Pause/PanelSettings/VBoxContainer2/MainButtons"]
+layout_mode = 2
+texture_normal = ExtResource("11_1u8w0")
+texture_pressed = ExtResource("12_0odxb")
+texture_focused = ExtResource("10_1u8w0")
+stretch_mode = 3
+
+[node name="Quit" type="TextureButton" parent="UI/Pause/PanelSettings/VBoxContainer2/MainButtons"]
+layout_mode = 2
+texture_normal = ExtResource("8_ryguw")
+texture_pressed = ExtResource("9_d13ii")
+texture_focused = ExtResource("10_1u8w0")
+stretch_mode = 5
 
 [node name="2D" type="SubViewport" parent="."]
 transparent_bg = true
@@ -270,6 +263,8 @@ body = NodePath("../..")
 script = ExtResource("6_w48qg")
 body = NodePath("../..")
 
-[connection signal="pressed" from="UI/Pause/MainButtons/QuitGame" to="UI/Pause" method="_on_quit_game_pressed"]
-[connection signal="value_changed" from="UI/Pause/PanelSettings/HSlider" to="UI/Pause/PanelSettings/HSlider" method="_on_value_changed"]
-[connection signal="toggled" from="UI/Pause/PanelSettings/FullscreenControl" to="UI/Pause/PanelSettings/FullscreenControl" method="_on_toggled"]
+[connection signal="value_changed" from="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer/HBoxContainer/HSlider" to="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer/HBoxContainer/HSlider" method="_on_value_changed"]
+[connection signal="toggled" from="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer/FullscreenControl" to="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer/FullscreenControl" method="_on_toggled"]
+[connection signal="button_up" from="UI/Pause/PanelSettings/VBoxContainer2/MainButtons/Restart" to="UI/Pause" method="_on_restart_button_up"]
+[connection signal="button_up" from="UI/Pause/PanelSettings/VBoxContainer2/MainButtons/Menu" to="UI/Pause" method="_on_menu_button_up"]
+[connection signal="button_up" from="UI/Pause/PanelSettings/VBoxContainer2/MainButtons/Quit" to="UI/Pause" method="_on_quit_button_up"]

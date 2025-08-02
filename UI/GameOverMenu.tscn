@@ -1,0 +1,121 @@
+[gd_scene load_steps=13 format=3 uid="uid://cpbu56wvvj2fx"]
+
+[ext_resource type="Texture2D" uid="uid://cn8k77aicvlye" path="res://Sprite/miscsprites/GameOver.png" id="1_0u5yh"]
+[ext_resource type="Script" uid="uid://b4e6kvljmjy2r" path="res://UI/GameOverMenu.gd" id="1_jk5tv"]
+[ext_resource type="PackedScene" uid="uid://hobpokn16d78" path="res://UI/MainMenu.tscn" id="2_0qglx"]
+[ext_resource type="Texture2D" uid="uid://cgsg7vvvrke0g" path="res://Sprite/Buttons/restart-button.png" id="2_mxr6o"]
+[ext_resource type="Texture2D" uid="uid://d4kh8md2aw1yd" path="res://Sprite/Buttons/restart-button-pressed.png" id="3_jk5tv"]
+[ext_resource type="PackedScene" uid="uid://jeth6hp8pbu3" path="res://main.tscn" id="3_pbllv"]
+[ext_resource type="Texture2D" uid="uid://caf4ewhe5ltco" path="res://Sprite/Buttons/play-button-focus.png" id="4_en13d"]
+[ext_resource type="Texture2D" uid="uid://dtt2oq60u7bn5" path="res://Sprite/Buttons/mm-button.png" id="5_0qglx"]
+[ext_resource type="Texture2D" uid="uid://dqcu3ufd1rkk" path="res://Sprite/Buttons/mm-button-pressed.png" id="6_pbllv"]
+
+[sub_resource type="Animation" id="Animation_yi0mk"]
+resource_name = "start"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(0.48, 0, 0, 1), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_on86r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t8gr0"]
+_data = {
+&"RESET": SubResource("Animation_on86r"),
+&"start": SubResource("Animation_yi0mk")
+}
+
+[node name="GameOverMenu" type="Control" node_paths=PackedStringArray("Animator", "scoreLabel", "restartButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jk5tv")
+Animator = NodePath("AnimationPlayer")
+scoreLabel = NodePath("VBoxContainer/Label")
+restartButton = NodePath("VBoxContainer/VBoxContainer/restart")
+menuScene = ExtResource("2_0qglx")
+gameScene = ExtResource("3_pbllv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t8gr0")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105604, 0.105604, 0.105604, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 137.0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(600, 125)
+layout_mode = 2
+texture = ExtResource("1_0u5yh")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Your Score is : 50 "
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="restart" type="TextureButton" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_mxr6o")
+texture_pressed = ExtResource("3_jk5tv")
+texture_focused = ExtResource("4_en13d")
+stretch_mode = 5
+
+[node name="menu" type="TextureButton" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_0qglx")
+texture_pressed = ExtResource("6_pbllv")
+texture_focused = ExtResource("4_en13d")
+stretch_mode = 5
+
+[connection signal="button_up" from="VBoxContainer/VBoxContainer/restart" to="." method="_on_restart_button_up"]
+[connection signal="button_up" from="VBoxContainer/VBoxContainer/menu" to="." method="_on_menu_button_up"]

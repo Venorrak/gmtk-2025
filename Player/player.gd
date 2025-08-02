@@ -8,6 +8,7 @@ func _ready() -> void:
 	SignalBus.platformDone.connect(refreeze)
 	SignalBus.dropPlatform.connect(unFreeze)
 	SignalBus.gameOver.connect(death)
+	freeze = true
 
 func apply_attack() -> void:
 	SM.current_state.handle_attack()

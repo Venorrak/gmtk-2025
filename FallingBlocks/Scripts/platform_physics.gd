@@ -41,6 +41,7 @@ func land(body : Node):
 		return
 	SignalBus.Change3DCameraTarget.emit(self)	
 	SignalBus.platformDone.emit()
+	SignalBus.score += 1
 	var material : StandardMaterial3D = $mesh.material_override as StandardMaterial3D
 	material.albedo_color = landedColor
 	print("LANDED")

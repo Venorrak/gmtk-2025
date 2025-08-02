@@ -1,6 +1,7 @@
 extends Node
 
 var tiltDirection : Vector2 = Vector2.ZERO
+var score : int = 0
 
 signal platformDone() #called by platform thingy
 signal newPlatfrom(index : int) # called by SM
