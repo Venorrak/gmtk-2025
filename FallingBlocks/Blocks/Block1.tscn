@@ -42,6 +42,7 @@ contact_monitor = true
 max_contacts_reported = 5
 script = ExtResource("1_d0vpn")
 fall_speed = 1.5
+fastDropSpeed = 2.5
 max_movement_speed = 1.0
 landedColor = Color(0.93, 0.465, 0, 1)
 

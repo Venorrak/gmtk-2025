@@ -33,12 +33,11 @@ func enter() -> void:
 	timer.start()
 	animated_sprite.play("stunned")
 	animation_player.play("stunned")
-
-
-
+	SignalBus.fastDropPlatform.emit()
 
 func exit() -> void:
 	animation_player.stop()
+	SignalBus.stopFastDrop.emit()
 
 func stunFinished() -> void:
 	Transitioned.emit(self, "IdleState")

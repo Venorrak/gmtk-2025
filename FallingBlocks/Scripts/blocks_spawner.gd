@@ -3,6 +3,7 @@ extends Node3D
 @export var block_scenes: Array[PackedScene]
 @export var active_platforms_count: int = 10
 @export var heightFromTheHighestOne: float = 15
+@export var radiusSpawn : float = 5
 
 var current_block: RigidBody3D = null
 var spawned_blocks: Array[Node3D] = []
@@ -22,7 +23,7 @@ func spawn_block():
 		
 	var block = block_scenes[currentBlockIndex]
 	var new_block = block.instantiate()
-	new_block.global_position = global_position + Vector3(0, getHighestPoint() + heightFromTheHighestOne, 0)
+	new_block.global_position = Vector3(randf_range(-radiusSpawn, radiusSpawn), getHighestPoint() + heightFromTheHighestOne, randf_range(-radiusSpawn, radiusSpawn))
 
 	get_parent().add_child(new_block)
 	current_block = new_block

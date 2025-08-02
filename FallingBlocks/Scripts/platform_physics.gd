@@ -1,6 +1,7 @@
 extends RigidBody3D
 
 @export var fall_speed = 2.0
+@export var fastDropSpeed : float = 4
 @export var max_tilt_degrees = 30.0
 @export var tilt_speed: float = 5.0
 @export var max_movement_speed = 8.0
@@ -8,16 +9,27 @@ extends RigidBody3D
 
 var is_landed := false
 var current_tilt := Vector3.ZERO
+var fastDrop : bool = false
 
 func _ready():
 	gravity_scale = 0
 	body_entered.connect(land)
+	SignalBus.fastDropPlatform.connect(_fastDrop)
+	SignalBus.stopFastDrop.connect(_normalDrop)
 
 func _physics_process(delta):
 	if is_landed:
 		return
 	linear_velocity = Vector3(-SignalBus.tiltDirection.x * max_movement_speed, -fall_speed, -SignalBus.tiltDirection.y * max_movement_speed)
+	if fastDrop:
+		linear_velocity.y = -fastDropSpeed
 	apply_tilt(delta)
+
+func _fastDrop() -> void:
+	fastDrop = true
+
+func _normalDrop() -> void:
+	fastDrop = false
 
 func land(body : Node):
 	if body.is_in_group("Mountain"):
