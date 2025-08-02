@@ -250,7 +250,7 @@ shader_parameter/clock_feather = 0.0
 shader_parameter/progress = 20.285
 shader_parameter/progress_bias = Vector2(2.5, 2.5)
 
-[node name="StartingAnimation" type="Control" node_paths=PackedStringArray("bg_animator", "text_animator", "bgtimer", "texttimer", "typewriter_timer", "label")]
+[node name="StartingAnimation" type="Control" node_paths=PackedStringArray("bg_animator", "text_animator", "texttimer", "typewriter_timer", "label")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -258,10 +258,10 @@ offset_bottom = 40.0
 script = ExtResource("1_ualsx")
 bg_animator = NodePath("BackgroundAnimation")
 text_animator = NodePath("TextAnimation")
-bgtimer = NodePath("bgtimer")
-texttimer = NodePath("texttimer")
-typewriter_timer = NodePath("typewritertimer")
+texttimer = NodePath("Timer2")
+typewriter_timer = NodePath("typewriter")
 label = NodePath("RichTextLabel")
+typewriter_speed = null
 phrases = Array[String](["allo", "2", "3"])
 
 [node name="BackgroundAnimation" type="AnimationPlayer" parent="."]
@@ -386,8 +386,8 @@ stretch_mode = 1
 
 [node name="TextBG" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 1286.0
-offset_bottom = 721.0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="TextureRect3" type="TextureRect" parent="TextBG"]
 visible = false
@@ -408,7 +408,6 @@ offset_bottom = 721.0
 texture = ExtResource("8_p2c06")
 
 [node name="WhiteHat" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchor_right = 32.175
 anchor_bottom = 18.05
@@ -432,20 +431,19 @@ anchors_preset = -1
 anchor_right = 32.0
 anchor_bottom = 18.05
 offset_left = 18.0
-offset_top = 465.0
+offset_top = 378.0
 offset_right = -499.0
-offset_bottom = -107.0
-theme_override_font_sizes/normal_font_size = 30
+offset_bottom = -18.0001
 
-[node name="bgtimer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="texttimer" type="Timer" parent="."]
-wait_time = 4.0
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
 autostart = true
 
-[node name="typewritertimer" type="Timer" parent="."]
+[node name="typewriter" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true

@@ -72,30 +72,6 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("TextBG/TextureRect3:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("TextBG/TextureRect2:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_qplsf"]
 resource_name = "start"
@@ -178,7 +154,7 @@ tracks/0/path = NodePath("TextBG/TextureRect3:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0666667, 0.5),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -190,34 +166,10 @@ tracks/1/path = NodePath("TextBG/TextureRect2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.0666667, 0.5),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(0, 0, 0, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TextBG/TextureRect3:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.0666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("TextBG/TextureRect2:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.0333333, 0.0666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qcx6e"]
@@ -250,26 +202,15 @@ shader_parameter/clock_feather = 0.0
 shader_parameter/progress = 20.285
 shader_parameter/progress_bias = Vector2(2.5, 2.5)
 
-[node name="StartingAnimation" type="Control" node_paths=PackedStringArray("bg_animator", "text_animator", "bgtimer", "texttimer", "typewriter_timer", "label")]
+[node name="StartingAnimation" type="Control" node_paths=PackedStringArray("Animator")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_ualsx")
-bg_animator = NodePath("BackgroundAnimation")
-text_animator = NodePath("TextAnimation")
-bgtimer = NodePath("bgtimer")
-texttimer = NodePath("texttimer")
-typewriter_timer = NodePath("typewritertimer")
-label = NodePath("RichTextLabel")
-phrases = Array[String](["allo", "2", "3"])
+Animator = NodePath("AnimationPlayer")
 
-[node name="BackgroundAnimation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_qcx6e")
-}
-
-[node name="TextAnimation" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_qcx6e")
 }
@@ -386,11 +327,10 @@ stretch_mode = 1
 
 [node name="TextBG" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 1286.0
-offset_bottom = 721.0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="TextureRect3" type="TextureRect" parent="TextBG"]
-visible = false
 layout_mode = 0
 offset_left = 2.0
 offset_top = 101.0
@@ -399,7 +339,6 @@ offset_bottom = 676.0
 texture = ExtResource("7_hnjt8")
 
 [node name="TextureRect2" type="TextureRect" parent="TextBG"]
-visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_top = 301.0
@@ -408,7 +347,6 @@ offset_bottom = 721.0
 texture = ExtResource("8_p2c06")
 
 [node name="WhiteHat" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchor_right = 32.175
 anchor_bottom = 18.05
@@ -425,27 +363,3 @@ offset_right = 23.0
 offset_bottom = 782.0
 rotation = 0.143117
 texture = ExtResource("9_p2c06")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 32.0
-anchor_bottom = 18.05
-offset_left = 18.0
-offset_top = 465.0
-offset_right = -499.0
-offset_bottom = -107.0
-theme_override_font_sizes/normal_font_size = 30
-
-[node name="bgtimer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-autostart = true
-
-[node name="texttimer" type="Timer" parent="."]
-wait_time = 4.0
-autostart = true
-
-[node name="typewritertimer" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
