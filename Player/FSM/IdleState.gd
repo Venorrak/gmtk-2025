@@ -20,6 +20,5 @@ func physics_update(delta: float) -> void:
 func enter() -> void:
 	animated_sprite.play("idle")
 
-
 func exit() -> void:
 	pass

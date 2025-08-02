@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dtiscujuoah34"]
+[gd_scene load_steps=15 format=3 uid="uid://dtiscujuoah34"]
 
 [ext_resource type="Script" uid="uid://b2facgkuguqvg" path="res://Player/player.gd" id="1_q3lat"]
 [ext_resource type="Script" uid="uid://drw0u0trca3q" path="res://Player/FSM/StateMachine.gd" id="2_tok1r"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://guo1fqadcow5" path="res://Player/FSM/IdleState.gd" id="4_s1rgi"]
 [ext_resource type="Script" uid="uid://dkt6ml0sl34g8" path="res://Player/FSM/StunnedState.gd" id="5_j23h2"]
 [ext_resource type="Script" uid="uid://c0raylo7iqdnv" path="res://Player/FSM/WalkingState.gd" id="6_0j2ni"]
+[ext_resource type="Script" uid="uid://cropfcgrb5ohp" path="res://Player/FSM/DeathState.gd" id="7_s1rgi"]
 [ext_resource type="SpriteFrames" uid="uid://bfyjoj7yxfx1q" path="res://Sprite/whitehat/Player.tres" id="7_vlldt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q3lat"]
@@ -141,16 +142,21 @@ animated_sprite = NodePath("../../AnimatedSprite2D")
 animation_player = NodePath("../../AnimationPlayer")
 body = NodePath("../..")
 
+[node name="DeathState" type="Node" parent="SM" node_paths=PackedStringArray("animated_sprite", "body")]
+script = ExtResource("7_s1rgi")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+body = NodePath("../..")
+metadata/_custom_type_script = "uid://cropfcgrb5ohp"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_vlldt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-rotation = -0.0218212
 scale = Vector2(5, 5)
 sprite_frames = ExtResource("7_vlldt")
-animation = &"walking"
+animation = &"death"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

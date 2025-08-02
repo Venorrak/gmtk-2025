@@ -32,8 +32,6 @@ func enter() -> void:
 	body.collision.set_deferred("disabled", true)
 	animated_sprite.play("dodge")
 
-	
-
 func exit() -> void:
 	body.collision.set_deferred("disabled", false)
 	body.lastDodgeTime = Time.get_ticks_msec()
