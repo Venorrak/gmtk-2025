@@ -29,11 +29,11 @@ func physics_update(delta: float) -> void:
 func enter() -> void:
 	timer.start()
 	dodgeDirection = Input.get_vector("left", "right", "up", "down")
-	body.collision.set_deferred("disabled", true)
+	body.collision_layer = 0 
 	animated_sprite.play("dodge")
 
 func exit() -> void:
-	body.collision.set_deferred("disabled", false)
+	body.collision_layer = 1 
 	body.lastDodgeTime = Time.get_ticks_msec()
 
 func dodgeFinished() -> void:

@@ -6,8 +6,9 @@
 
 [node name="WavyGun" type="Node2D"]
 script = ExtResource("1_21ntt")
+cooldown = 1.0
 radius = 40.0
-detectionRadius = 800.0
+detectionRadius = 450.0
 cannonSprite = ExtResource("2_42nk6")
 bullet = ExtResource("2_br17p")
 metadata/_custom_type_script = "uid://ce7kg7dtcetgx"

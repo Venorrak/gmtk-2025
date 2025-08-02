@@ -8,6 +8,9 @@ size = Vector2(22.5, 10)
 
 [node name="WavyBullet" type="Node2D"]
 script = ExtResource("1_hxja6")
+amplitude = 0.4
+freq = 1.36
+speed = 85.0
 metadata/_custom_type_script = "uid://c1q1rdvrqjev5"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

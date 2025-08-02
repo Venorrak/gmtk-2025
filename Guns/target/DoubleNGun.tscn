@@ -6,9 +6,9 @@
 
 [node name="DoubleNGun" type="Node2D"]
 script = ExtResource("1_a6uip")
-cooldown = 1.5
+cooldown = 1.8
 radius = 40.0
-detectionRadius = 800.0
+detectionRadius = 350.0
 cannonSprite = ExtResource("2_87lqq")
 bullet = ExtResource("2_akuee")
 metadata/_custom_type_script = "uid://ce7kg7dtcetgx"

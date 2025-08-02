@@ -11,7 +11,9 @@ size = Vector2(22.5, 10)
 
 [node name="DoubleRotateBullet" type="Node2D"]
 script = ExtResource("1_xkata")
-rotationSpeed = 2.5
+spacing = 30.0
+rotationSpeed = 2.0
+speed = 50.0
 metadata/_custom_type_script = "uid://c1q1rdvrqjev5"
 
 [node name="Pivot" type="Node2D" parent="."]
