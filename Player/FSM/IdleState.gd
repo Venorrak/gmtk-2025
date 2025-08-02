@@ -1,4 +1,6 @@
 class_name IdleState extends BaseState
+var animation_tree
+@export var animated_sprite: AnimatedSprite2D
 
 func handle_attack() -> void:
 	Transitioned.emit(self, "StunnedState")
@@ -16,7 +18,8 @@ func physics_update(delta: float) -> void:
 	pass
 
 func enter() -> void:
-	pass
+	animated_sprite.play("idle")
+
 
 func exit() -> void:
 	pass

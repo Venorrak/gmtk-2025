@@ -1,18 +1,108 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtiscujuoah34"]
+[gd_scene load_steps=14 format=3 uid="uid://dtiscujuoah34"]
 
-[ext_resource type="Texture2D" uid="uid://dvmauv1qi1p3x" path="res://icon.svg" id="1_3qydi"]
-[ext_resource type="Script" uid="uid://b2facgkuguqvg" path="res://Player/player.gd" id="1_q3lat"]
-[ext_resource type="Script" uid="uid://drw0u0trca3q" path="res://Player/FSM/StateMachine.gd" id="2_tok1r"]
-[ext_resource type="Script" uid="uid://hvddxnqd1nve" path="res://Player/FSM/DodgeState.gd" id="3_vlldt"]
-[ext_resource type="Script" uid="uid://guo1fqadcow5" path="res://Player/FSM/IdleState.gd" id="4_s1rgi"]
-[ext_resource type="Script" uid="uid://dkt6ml0sl34g8" path="res://Player/FSM/StunnedState.gd" id="5_j23h2"]
-[ext_resource type="Script" uid="uid://c0raylo7iqdnv" path="res://Player/FSM/WalkingState.gd" id="6_0j2ni"]
+[ext_resource type="Script" uid="uid://bpami163ity1m" path="res://Player/player.gd" id="1_q3lat"]
+[ext_resource type="Script" uid="uid://bmmsrd4l84h8c" path="res://Player/FSM/StateMachine.gd" id="2_tok1r"]
+[ext_resource type="Script" uid="uid://bl455p0pcujt5" path="res://Player/FSM/DodgeState.gd" id="3_vlldt"]
+[ext_resource type="Script" uid="uid://bxyw7ru1j6rhe" path="res://Player/FSM/IdleState.gd" id="4_s1rgi"]
+[ext_resource type="Script" uid="uid://cbst8u86t8til" path="res://Player/FSM/StunnedState.gd" id="5_j23h2"]
+[ext_resource type="Script" uid="uid://bgnkbwrsodpk0" path="res://Player/FSM/WalkingState.gd" id="6_0j2ni"]
+[ext_resource type="SpriteFrames" uid="uid://bfyjoj7yxfx1q" path="res://Sprite/whitehat/Player.tres" id="7_vlldt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_q3lat"]
 rough = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
-size = Vector2(38.825, 38.265)
+[sub_resource type="CircleShape2D" id="CircleShape2D_vlldt"]
+radius = 17.0
+
+[sub_resource type="Animation" id="Animation_s1rgi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j23h2"]
+resource_name = "stunned"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-5, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(5, 0), Vector2(-5, 0), Vector2(5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vlldt"]
+resource_name = "walk_bounce"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.554784, 0.554784, 0.554784, 0.554784, 0.554784),
+"update": 0,
+"values": [Vector2(0, -13.89), Vector2(0, 0), Vector2(0, -13.89), Vector2(0, 0), Vector2(0, -13.89)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 0.659754, 1),
+"update": 0,
+"values": [0.0, -0.1309, 0.0, 0.1309, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1.62451, 1.62451, 1.62451, 1.62451, 1.62451),
+"update": 0,
+"values": [Vector2(5, 5), Vector2(5, 4.65), Vector2(5, 5), Vector2(5, 4.65), Vector2(5, 5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s1rgi"]
+_data = {
+&"RESET": SubResource("Animation_s1rgi"),
+&"stunned": SubResource("Animation_j23h2"),
+&"walk_bounce": SubResource("Animation_vlldt")
+}
 
 [node name="player" type="RigidBody2D" node_paths=PackedStringArray("SM") groups=["player"]]
 physics_material_override = SubResource("PhysicsMaterial_q3lat")
@@ -26,32 +116,42 @@ SM = NodePath("SM")
 script = ExtResource("2_tok1r")
 initial_state = NodePath("IdleState")
 
-[node name="DodgeState" type="Node" parent="SM" node_paths=PackedStringArray("body")]
+[node name="DodgeState" type="Node" parent="SM" node_paths=PackedStringArray("animated_sprite", "body")]
 script = ExtResource("3_vlldt")
 dodgeSpeed = 2000.0
 dodgeTime = 0.4
+animated_sprite = NodePath("../../AnimatedSprite2D")
 body = NodePath("../..")
-metadata/_custom_type_script = "uid://hvddxnqd1nve"
 
-[node name="IdleState" type="Node" parent="SM" node_paths=PackedStringArray("body")]
+[node name="IdleState" type="Node" parent="SM" node_paths=PackedStringArray("animated_sprite", "body")]
 script = ExtResource("4_s1rgi")
+animated_sprite = NodePath("../../AnimatedSprite2D")
 body = NodePath("../..")
-metadata/_custom_type_script = "uid://guo1fqadcow5"
 
-[node name="StunnedState" type="Node" parent="SM" node_paths=PackedStringArray("body")]
+[node name="StunnedState" type="Node" parent="SM" node_paths=PackedStringArray("animated_sprite", "animation_player", "body")]
 script = ExtResource("5_j23h2")
 stunTime = 1.0
+animated_sprite = NodePath("../../AnimatedSprite2D")
+animation_player = NodePath("../../AnimationPlayer")
 body = NodePath("../..")
-metadata/_custom_type_script = "uid://dkt6ml0sl34g8"
 
-[node name="WalkingState" type="Node" parent="SM" node_paths=PackedStringArray("body")]
+[node name="WalkingState" type="Node" parent="SM" node_paths=PackedStringArray("animated_sprite", "animation_player", "body")]
 script = ExtResource("6_0j2ni")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+animation_player = NodePath("../../AnimationPlayer")
 body = NodePath("../..")
-metadata/_custom_type_script = "uid://c0raylo7iqdnv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
-shape = SubResource("RectangleShape2D_q3lat")
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_vlldt")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_3qydi")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("7_vlldt")
+animation = &"walking"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_s1rgi")
+}
