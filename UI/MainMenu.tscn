@@ -160,6 +160,7 @@ text = "Settings"
 horizontal_alignment = 1
 
 [node name="Back" type="Button" parent="PanelSettings"]
+layout_mode = 0
 offset_left = 19.5
 offset_top = 477.0
 offset_right = 253.5

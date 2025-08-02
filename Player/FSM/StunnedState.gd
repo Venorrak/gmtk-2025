@@ -3,6 +3,9 @@ class_name StunnedState extends BaseState
 @export var speed : float = 1000
 @export var stunTime : float
 var timer : Timer 
+var animation_tree
+@export var animated_sprite: AnimatedSprite2D
+@export var animation_player: AnimationPlayer
 
 func _ready() -> void:
 	var newTimer : Timer = Timer.new()
@@ -28,9 +31,14 @@ func physics_update(delta: float) -> void:
 
 func enter() -> void:
 	timer.start()
+	animated_sprite.play("stunned")
+	animation_player.play("stunned")
+
+
+
 
 func exit() -> void:
-	pass
+	animation_player.stop()
 
 func stunFinished() -> void:
 	Transitioned.emit(self, "IdleState")

@@ -2,6 +2,9 @@ class_name WalkingState extends BaseState
 
 @export var speed : float = 1000
 @export var dodgeDelay : float = 0.5
+var animation_tree: AnimationTree
+@export var animated_sprite: AnimatedSprite2D
+@export var animation_player: AnimationPlayer
 
 func handle_attack() -> void:
 	Transitioned.emit(self, "StunnedState")
@@ -22,7 +25,10 @@ func physics_update(delta: float) -> void:
 	pass
 
 func enter() -> void:
-	pass
+	animated_sprite.play("walking")
+	animation_player.play("walk_bounce")
+
+
 
 func exit() -> void:
-	pass
+	animation_player.stop()

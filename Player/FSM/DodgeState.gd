@@ -4,6 +4,7 @@ class_name DodgeState extends BaseState
 @export var dodgeTime : float
 var timer : Timer
 var dodgeDirection : Vector2 = Vector2.ZERO
+@export var animated_sprite: AnimatedSprite2D
 
 func _ready() -> void:
 	var newTimer : Timer = Timer.new()
@@ -29,6 +30,9 @@ func enter() -> void:
 	timer.start()
 	dodgeDirection = Input.get_vector("left", "right", "up", "down")
 	body.collision.set_deferred("disabled", true)
+	animated_sprite.play("dodge")
+
+	
 
 func exit() -> void:
 	body.collision.set_deferred("disabled", false)

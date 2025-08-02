@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=4 uid="uid://dhhhsdiubg8h"]
 
-[ext_resource type="Shader" uid="uid://cq67ib34urbru" path="res://FallingBlocks/gridShader.gdshader" id="1_0x1ws"]
-[ext_resource type="Script" uid="uid://d3jq5cx8m2dvl" path="res://FallingBlocks/Scripts/blocks_spawner.gd" id="1_dprjx"]
+[ext_resource type="Shader" uid="uid://ct0ajf0o66smf" path="res://FallingBlocks/gridShader.gdshader" id="1_0x1ws"]
+[ext_resource type="Script" uid="uid://be3tqicpeevwi" path="res://FallingBlocks/Scripts/blocks_spawner.gd" id="1_dprjx"]
 [ext_resource type="PackedScene" uid="uid://bwdecjbbtgri6" path="res://FallingBlocks/Blocks/Block1.tscn" id="2_h3tpo"]
-[ext_resource type="Script" uid="uid://bewgyl0s3x4q5" path="res://FallingBlocks/mountain.gd" id="2_qobxd"]
-[ext_resource type="Script" uid="uid://drign7lf3nhos" path="res://FallingBlocks/Scripts/camera_orbiting.gd" id="3_1plht"]
+[ext_resource type="Script" uid="uid://bjrwhg5l3lyx7" path="res://FallingBlocks/mountain.gd" id="2_qobxd"]
+[ext_resource type="Script" uid="uid://bajsfl4rcdq11" path="res://FallingBlocks/Scripts/camera_orbiting.gd" id="3_1plht"]
 [ext_resource type="Environment" uid="uid://cgvnbljkuv7j0" path="res://FallingBlocks/environment.tres" id="6_d73qp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0x1ws"]
