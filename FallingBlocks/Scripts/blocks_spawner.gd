@@ -23,7 +23,9 @@ func spawn_block():
 		
 	var block = block_scenes[currentBlockIndex]
 	var new_block = block.instantiate()
-	new_block.global_position = Vector3(randf_range(-radiusSpawn, radiusSpawn), getHighestPoint() + heightFromTheHighestOne, randf_range(-radiusSpawn, radiusSpawn))
+	new_block.global_position = Vector3(randf_range(2, radiusSpawn), getHighestPoint() + heightFromTheHighestOne, 0)
+	new_block.position = new_block.position.rotated(Vector3(0, 1, 0), randf_range(deg_to_rad(0), deg_to_rad(360)))
+	print(new_block.global_rotation)
 
 	get_parent().add_child(new_block)
 	current_block = new_block

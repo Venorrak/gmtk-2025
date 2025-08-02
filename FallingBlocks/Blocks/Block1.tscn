@@ -44,7 +44,7 @@ script = ExtResource("1_d0vpn")
 fall_speed = 1.5
 fastDropSpeed = 2.5
 max_movement_speed = 1.0
-landedColor = Color(0.93, 0.465, 0, 1)
+landedColor = Color(0.0895011, 0.64905, 0.959144, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_d0vpn")

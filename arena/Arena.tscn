@@ -14,8 +14,8 @@ point_count = 2
 
 [node name="Arena" type="Node2D" node_paths=PackedStringArray("player", "powerLabel")]
 script = ExtResource("1_vbyki")
-nbEnnemies = 20
-spawnRadius = 1000.0
+nbEnnemies = 15
+maxSpawnRadius = 600.0
 arenaCenter = Vector2(438, 357)
 curve = SubResource("Curve_vbyki")
 ennemyScene = ExtResource("2_vbyki")

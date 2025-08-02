@@ -1,7 +1,11 @@
 extends Node2D
 
 @export var nbEnnemies : int = 30
-@export var spawnRadius : float = 600
+@export var minSpawnRadius : float = 200
+@export var maxSpawnRadius : float = 1000
+@export var ennemySpacing : float = 100
+var spawningAttempts = 10
+
 @export var arenaCenter : Vector2 = Vector2.ZERO
 @export var platformSpeed : float = 100
 @export var curve : Curve
@@ -49,11 +53,27 @@ func applyMovementToEnnemies(movement : Vector2) -> void:
 
 func spawnEnnemies() -> void:
 	for i in nbEnnemies:
-		var newEnnemy = ennemyScene.instantiate()
-		newEnnemy.position = Vector2(randf_range(-spawnRadius, spawnRadius), randf_range(-spawnRadius, spawnRadius)) + arenaCenter
-		ennemies.append(newEnnemy)
-		newEnnemy.visible = false
-		add_child(newEnnemy)
+		var newPosition = getSpawnPosition()
+		if newPosition:
+			var newEnnemy = ennemyScene.instantiate()
+			newEnnemy.position = newPosition
+			ennemies.append(newEnnemy)
+			newEnnemy.visible = false
+			add_child(newEnnemy)
+
+func getSpawnPosition() -> Variant:
+	for i in spawningAttempts:
+		var pos = Vector2(randf_range(-maxSpawnRadius, maxSpawnRadius), randf_range(-maxSpawnRadius, maxSpawnRadius))
+		var d = pos.distance_to(arenaCenter)
+		if d > minSpawnRadius and d < maxSpawnRadius and spacingCorrect(pos):
+			return pos
+	return null
+
+func spacingCorrect(pos : Vector2) -> bool:
+	for e in ennemies:
+		if pos.distance_to(e.position) < ennemySpacing:
+			return false
+	return true
 
 func resetEnnemies() -> void:
 	for i in ennemies:

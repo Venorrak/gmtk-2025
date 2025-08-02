@@ -215,6 +215,9 @@ transparent_bg = true
 size = Vector2i(876, 714)
 
 [node name="Arena" parent="2D" instance=ExtResource("1_ig7tw")]
+nbEnnemies = 10
+minSpawnRadius = 250.0
+ennemySpacing = 170.0
 
 [node name="3D" type="SubViewport" parent="."]
 size = Vector2i(400, 450)
