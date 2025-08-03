@@ -20,6 +20,7 @@ var typing := false
 var current_phrase := ""
 var phrase_being_typed := -1
 var animationPlayed = false 
+var animationScreenshotPlayed = false 
 
 func _ready() -> void:
 	bgtimer.timeout.connect(bganimation)
@@ -30,9 +31,16 @@ func _ready() -> void:
 	bg_animator.play("background")
 
 func _process(delta):
-	if current_phrase_index == 8 && !animationPlayed:
+	if current_phrase_index == 6 and !animationPlayed:
 		bg_animator.play("fadeout")
 		animationPlayed = true
+	if current_phrase_index == 4 and !animationScreenshotPlayed:
+		text_animator.play("screenshot")
+		animationScreenshotPlayed = true
+
+	if Input.is_action_just_pressed("skipcutscene"):
+		skip_cutscene()
+
 
 func bganimation():
 	text_animator.play("textbg")
@@ -91,3 +99,30 @@ func textAppear():
 
 func timerTimeout():
 	textAppear()
+
+func skip_cutscene() -> void:
+	bgtimer.stop()
+	phrase_timer.stop()
+	typewriter_timer.stop()
+	bg_animator.play("fadeout") 
+	
+	if typing and current_phrase_index < phrases.size():
+		label.text = phrases[current_phrase_index]
+		typing = false
+
+	current_phrase_index = phrases.size()
+	bg_animator.stop()
+	text_animator.stop()
+	bg_animator.play("fadeout") 
+	queue_end()
+
+# sorry
+func textcountdown1():
+	$RichTextLabel2.text = "1"
+func textcountdown2():
+	$RichTextLabel2.text = "2"
+func textcountdown3():
+	$RichTextLabel2.text = "3"
+
+func cleartext():
+	label.text = ""

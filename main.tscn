@@ -1,29 +1,33 @@
-[gd_scene load_steps=33 format=3 uid="uid://jeth6hp8pbu3"]
+[gd_scene load_steps=41 format=3 uid="uid://jeth6hp8pbu3"]
 
 [ext_resource type="Theme" uid="uid://bb74rah8n7o5x" path="res://Theme.tres" id="1_1bvp3"]
-[ext_resource type="Script" uid="uid://bu0b2cvqebt01" path="res://main.gd" id="1_7mycd"]
+[ext_resource type="Script" uid="uid://wrikjoc882ur" path="res://main.gd" id="1_7mycd"]
 [ext_resource type="PackedScene" uid="uid://8h3hxuwkofx6" path="res://arena/Arena.tscn" id="1_ig7tw"]
-[ext_resource type="Shader" uid="uid://b7ylttcjjhm17" path="res://background.gdshader" id="1_lquwl"]
+[ext_resource type="Shader" uid="uid://cc3bxxf6ihl5j" path="res://background.gdshader" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dhhhsdiubg8h" path="res://FallingBlocks/fallingBlockScene.tscn" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://c85yxaouivtfy" path="res://UI/music_control.gd" id="2_7mycd"]
-[ext_resource type="Script" uid="uid://cr0jdmd8rtkjr" path="res://pause_menu.gd" id="2_272bh"]
-[ext_resource type="Script" uid="uid://ck3pjawuj4osq" path="res://UI/fullscreen_control.gd" id="3_272bh"]
-[ext_resource type="Script" uid="uid://dw045br18flj6" path="res://GameStates/StartState.gd" id="3_efxa6"]
-[ext_resource type="Script" uid="uid://drign7lf3nhos" path="res://FallingBlocks/Scripts/camera_orbiting.gd" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://dgsfskwfqnpll" path="res://GameStates/InterState.gd" id="4_dg77c"]
+[ext_resource type="Script" uid="uid://bdkwkiy02tuyh" path="res://UI/music_control.gd" id="2_7mycd"]
+[ext_resource type="Script" uid="uid://nohi4t7u5jft" path="res://pause_menu.gd" id="2_272bh"]
+[ext_resource type="Script" uid="uid://cfkcrkmsuo6jg" path="res://UI/fullscreen_control.gd" id="3_272bh"]
+[ext_resource type="Script" uid="uid://dnpf10a385idc" path="res://GameStates/StartState.gd" id="3_efxa6"]
+[ext_resource type="Script" uid="uid://bajsfl4rcdq11" path="res://FallingBlocks/Scripts/camera_orbiting.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://ccridvuruccpf" path="res://GameStates/InterState.gd" id="4_dg77c"]
 [ext_resource type="PackedScene" uid="uid://buvrp1m3nq40a" path="res://Animations/StartingAnimation.tscn" id="4_ycdy4"]
-[ext_resource type="Script" uid="uid://dcii83uba36ms" path="res://GameStates/GameOverState.gd" id="5_ycdy4"]
-[ext_resource type="Script" uid="uid://d0k67lx4tmh4i" path="res://GameStates/FallingState.gd" id="6_w48qg"]
-[ext_resource type="Script" uid="uid://boyncuja5e588" path="res://UI/sfx_control.gd" id="6_yaehf"]
+[ext_resource type="Script" uid="uid://dbttp6u622te0" path="res://GameStates/GameOverState.gd" id="5_ycdy4"]
+[ext_resource type="Script" uid="uid://dlhef1220oto0" path="res://GameStates/FallingState.gd" id="6_w48qg"]
+[ext_resource type="Script" uid="uid://bcmhx37rrchhn" path="res://UI/sfx_control.gd" id="6_yaehf"]
 [ext_resource type="PackedScene" uid="uid://ccmo8cbr53nrq" path="res://Animations/InterAnimation.tscn" id="6_ycdy4"]
-[ext_resource type="Texture2D" uid="uid://dj2h7p4qi5utl" path="res://Sprite/Buttons/quit-button.png" id="8_ryguw"]
-[ext_resource type="Texture2D" uid="uid://bflsoeiwwaapd" path="res://Sprite/Buttons/quit-button-pressed.png" id="9_d13ii"]
-[ext_resource type="Texture2D" uid="uid://caf4ewhe5ltco" path="res://Sprite/Buttons/play-button-focus.png" id="10_1u8w0"]
-[ext_resource type="Script" uid="uid://drw0u0trca3q" path="res://Player/FSM/StateMachine.gd" id="10_2cqfq"]
-[ext_resource type="Texture2D" uid="uid://cgsg7vvvrke0g" path="res://Sprite/Buttons/restart-button.png" id="11_0odxb"]
-[ext_resource type="Texture2D" uid="uid://dtt2oq60u7bn5" path="res://Sprite/Buttons/mm-button.png" id="11_1u8w0"]
-[ext_resource type="Texture2D" uid="uid://dqcu3ufd1rkk" path="res://Sprite/Buttons/mm-button-pressed.png" id="12_0odxb"]
-[ext_resource type="Texture2D" uid="uid://d4kh8md2aw1yd" path="res://Sprite/Buttons/restart-button-pressed.png" id="12_lswn8"]
+[ext_resource type="Texture2D" uid="uid://cdeiveqr3pdei" path="res://Sprite/Buttons/quit-button.png" id="8_ryguw"]
+[ext_resource type="Texture2D" uid="uid://c7plgekhtemct" path="res://Sprite/Buttons/quit-button-pressed.png" id="9_d13ii"]
+[ext_resource type="Texture2D" uid="uid://b0xtysv2udyt3" path="res://Sprite/Buttons/play-button-focus.png" id="10_1u8w0"]
+[ext_resource type="Script" uid="uid://bmmsrd4l84h8c" path="res://Player/FSM/StateMachine.gd" id="10_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://bft66rhfgjyel" path="res://Sprite/Buttons/restart-button.png" id="11_0odxb"]
+[ext_resource type="Texture2D" uid="uid://drwukxvtn1qvm" path="res://Sprite/Buttons/mm-button.png" id="11_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://cpb7iy060tw4c" path="res://Sprite/Buttons/mm-button-pressed.png" id="12_0odxb"]
+[ext_resource type="Texture2D" uid="uid://nvh8o6kkrpue" path="res://Sprite/Buttons/restart-button-pressed.png" id="12_lswn8"]
+[ext_resource type="PackedScene" uid="uid://dvthrqmpu7wgv" path="res://FallingBlocks/Blocks/BlockModels/hexagone.glb" id="18_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://0an4hy4s4i3f" path="res://Animations/EndAnimation.tscn" id="24_0odxb"]
+[ext_resource type="Shader" uid="uid://grvu6jmvxiue" path="res://Animations/animShader.gdshader" id="26_lswn8"]
+[ext_resource type="Script" uid="uid://cnae17m8pjkjb" path="res://animation_player.gd" id="27_a6jrf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("1_lquwl")
@@ -56,10 +60,87 @@ thickness = 6
 color = Color(1, 1, 1, 1)
 thickness = 6
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("SM", "HUD")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a6jrf"]
+shader = ExtResource("26_lswn8")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 0
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/invert = true
+shader_parameter/grid_size = Vector2(48, 27)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 1.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 8
+shader_parameter/shape_feather = 0.0
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(2.5, 2.5)
+
+[sub_resource type="Animation" id="Animation_xuqvo"]
+resource_name = "startanimation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [25.0, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.03333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"toggle_time"
+}, {
+"args": [],
+"method": &"toggle_time"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_qsp4k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kq58d"]
+_data = {
+&"RESET": SubResource("Animation_qsp4k"),
+&"startanimation": SubResource("Animation_xuqvo")
+}
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("SM", "HUD", "scoreLabel")]
 script = ExtResource("1_7mycd")
 SM = NodePath("StateMachine")
 HUD = NodePath("HUD")
+scoreLabel = NodePath("HUD/Score")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -171,7 +252,6 @@ text = "SFX volume"
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 script = ExtResource("6_yaehf")
-metadata/_custom_type_script = "uid://boyncuja5e588"
 
 [node name="FullscreenControl" type="CheckButton" parent="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
@@ -230,6 +310,8 @@ height = 0.895
 offsetHeight = 1.705
 speed = 8.0
 
+[node name="hexagone" parent="3D/Camera" instance=ExtResource("18_xuqvo")]
+
 [node name="3Dcam" type="SubViewport" parent="."]
 size = Vector2i(400, 260)
 
@@ -251,17 +333,30 @@ body = NodePath("../..")
 
 [node name="InterState" type="Node" parent="StateMachine" node_paths=PackedStringArray("body")]
 script = ExtResource("4_dg77c")
-nbTypesOfPlatforms = 1
+nbTypesOfPlatforms = 3
 interAnimScene = ExtResource("6_ycdy4")
 body = NodePath("../..")
 
 [node name="GameOverState" type="Node" parent="StateMachine" node_paths=PackedStringArray("body")]
 script = ExtResource("5_ycdy4")
+endAnimation = ExtResource("24_0odxb")
 body = NodePath("../..")
 
 [node name="FallingState" type="Node" parent="StateMachine" node_paths=PackedStringArray("body")]
 script = ExtResource("6_w48qg")
 body = NodePath("../..")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_a6jrf")
+offset_right = 1286.0
+offset_bottom = 720.0
+color = Color(0.426376, 0.0016995, 0.667273, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kq58d")
+}
+script = ExtResource("27_a6jrf")
 
 [connection signal="value_changed" from="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer/HBoxContainer/HSlider" to="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer/HBoxContainer/HSlider" method="_on_value_changed"]
 [connection signal="toggled" from="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer/FullscreenControl" to="UI/Pause/PanelSettings/VBoxContainer2/VBoxContainer/FullscreenControl" method="_on_toggled"]

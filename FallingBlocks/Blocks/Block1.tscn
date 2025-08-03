@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://bwdecjbbtgri6"]
 
-[ext_resource type="Script" uid="uid://2rbxtfvdojbi" path="res://FallingBlocks/Scripts/platform_physics.gd" id="1_d0vpn"]
+[ext_resource type="Script" uid="uid://du3kb181qimob" path="res://FallingBlocks/Scripts/platform_physics.gd" id="1_d0vpn"]
 [ext_resource type="Material" uid="uid://b2u6of035s4k8" path="res://FallingBlocks/Blocks/BlockMat/BlockMatDetailed.tres" id="2_o8uax"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0vpn"]
