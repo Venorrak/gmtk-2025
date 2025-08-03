@@ -8,7 +8,8 @@ extends Control
 func _ready():
 	main_buttons.visible = true
 	panel_settings.visible = false
-	main_buttons.get_child(0).grab_focus()
+	if main_buttons:
+		main_buttons.get_child(0).grab_focus()
 	$AnimationPlayer.play("mountains")
 
 func _on_start_button_up() -> void:

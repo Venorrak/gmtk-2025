@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://bwdecjbbtgri6"]
 
-[ext_resource type="Script" uid="uid://2rbxtfvdojbi" path="res://FallingBlocks/Scripts/platform_physics.gd" id="1_d0vpn"]
+[ext_resource type="Script" uid="uid://du3kb181qimob" path="res://FallingBlocks/Scripts/platform_physics.gd" id="1_d0vpn"]
 [ext_resource type="Material" uid="uid://b2u6of035s4k8" path="res://FallingBlocks/Blocks/BlockMat/BlockMatDetailed.tres" id="2_o8uax"]
 [ext_resource type="AudioStream" uid="uid://c8b3klari7pyk" path="res://Audio/sfx/Complete_02.wav" id="2_qwnfh"]
 [ext_resource type="AudioStream" uid="uid://dpu8fvj7mb71s" path="res://Audio/sfx/fail.wav" id="3_q3da5"]

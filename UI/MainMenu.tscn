@@ -1,23 +1,24 @@
 [gd_scene load_steps=24 format=3 uid="uid://hobpokn16d78"]
 
-[ext_resource type="Script" uid="uid://dn0td0v27apb6" path="res://UI/main_menu.gd" id="1_uahxu"]
-[ext_resource type="Script" uid="uid://c85yxaouivtfy" path="res://UI/music_control.gd" id="2_b37jj"]
-[ext_resource type="Texture2D" uid="uid://blxcr7xghke2c" path="res://Sprite/intro/sky.png" id="2_t4ff4"]
+[ext_resource type="Script" uid="uid://c36w0sap03ugl" path="res://UI/main_menu.gd" id="1_uahxu"]
+[ext_resource type="Script" uid="uid://bdkwkiy02tuyh" path="res://UI/music_control.gd" id="2_b37jj"]
+[ext_resource type="Texture2D" uid="uid://bl648hkwc61rv" path="res://Sprite/intro/sky.png" id="2_t4ff4"]
 [ext_resource type="AudioStream" uid="uid://c7fhpq12bxvgn" path="res://Audio/sfx/Click_01.wav" id="2_vsl72"]
-[ext_resource type="Script" uid="uid://ck3pjawuj4osq" path="res://UI/fullscreen_control.gd" id="3_t6syg"]
-[ext_resource type="Texture2D" uid="uid://doqrepl8177w8" path="res://Sprite/intro/mountain3.png" id="3_w5vcv"]
-[ext_resource type="Script" uid="uid://boyncuja5e588" path="res://UI/sfx_control.gd" id="3_y6s48"]
-[ext_resource type="Texture2D" uid="uid://doyns6e4omkdm" path="res://Sprite/intro/mountain2.png" id="4_d2d4f"]
-[ext_resource type="Texture2D" uid="uid://cmueajr8635ag" path="res://Sprite/intro/mountain1.png" id="5_6vw7e"]
-[ext_resource type="Texture2D" uid="uid://b7tt4gjsv2a57" path="res://Sprite/Buttons/play-button.png" id="6_avhca"]
-[ext_resource type="Texture2D" uid="uid://dfqk5vvwuoak6" path="res://Sprite/Buttons/play-button-pressed.png" id="7_x8sin"]
-[ext_resource type="Texture2D" uid="uid://caf4ewhe5ltco" path="res://Sprite/Buttons/play-button-focus.png" id="8_fxi16"]
-[ext_resource type="Texture2D" uid="uid://cwqvgdtitdoi3" path="res://Sprite/Buttons/options-button.png" id="9_vsl72"]
-[ext_resource type="Texture2D" uid="uid://bjlrnh5owhp34" path="res://Sprite/Buttons/options-button-pressed.png" id="10_yndlu"]
-[ext_resource type="Texture2D" uid="uid://dj2h7p4qi5utl" path="res://Sprite/Buttons/quit-button.png" id="11_v87kc"]
-[ext_resource type="Texture2D" uid="uid://bflsoeiwwaapd" path="res://Sprite/Buttons/quit-button-pressed.png" id="12_h2xek"]
-[ext_resource type="Texture2D" uid="uid://dl6vakssrr6if" path="res://Sprite/Buttons/back-button.png" id="16_fxi16"]
-[ext_resource type="Texture2D" uid="uid://xrajdanxi4qy" path="res://Sprite/Buttons/back-button-pressed.png" id="17_vsl72"]
+[ext_resource type="Script" uid="uid://cfkcrkmsuo6jg" path="res://UI/fullscreen_control.gd" id="3_t6syg"]
+[ext_resource type="Texture2D" uid="uid://dteuq7x4fqj3p" path="res://Sprite/intro/mountain3.png" id="3_w5vcv"]
+[ext_resource type="Script" uid="uid://bcmhx37rrchhn" path="res://UI/sfx_control.gd" id="3_y6s48"]
+[ext_resource type="Texture2D" uid="uid://b6d2q0vj772gt" path="res://Sprite/intro/mountain2.png" id="4_d2d4f"]
+[ext_resource type="Texture2D" uid="uid://clurulssyueos" path="res://Sprite/intro/mountain1.png" id="5_6vw7e"]
+[ext_resource type="Texture2D" uid="uid://dkiwr1a05jknh" path="res://Sprite/Buttons/play-button.png" id="6_avhca"]
+[ext_resource type="Texture2D" uid="uid://b6pna57nbl8jj" path="res://Sprite/Buttons/play-button-pressed.png" id="7_x8sin"]
+[ext_resource type="Texture2D" uid="uid://b0xtysv2udyt3" path="res://Sprite/Buttons/play-button-focus.png" id="8_fxi16"]
+[ext_resource type="Texture2D" uid="uid://u4733pdpq1mc" path="res://Sprite/Buttons/options-button.png" id="9_vsl72"]
+[ext_resource type="Texture2D" uid="uid://bcef24ojb13st" path="res://Sprite/Buttons/options-button-pressed.png" id="10_yndlu"]
+[ext_resource type="Texture2D" uid="uid://cdeiveqr3pdei" path="res://Sprite/Buttons/quit-button.png" id="11_v87kc"]
+[ext_resource type="Texture2D" uid="uid://c7plgekhtemct" path="res://Sprite/Buttons/quit-button-pressed.png" id="12_h2xek"]
+[ext_resource type="FontFile" uid="uid://uxcqnkg5x0x0" path="res://Font/ethnocentric/Ethnocentric Rg It.otf" id="13_vsl72"]
+[ext_resource type="Texture2D" uid="uid://cv5w6ygak2p2e" path="res://Sprite/Buttons/back-button.png" id="16_fxi16"]
+[ext_resource type="Texture2D" uid="uid://tin8r7kbiqhi" path="res://Sprite/Buttons/back-button-pressed.png" id="17_vsl72"]
 
 [sub_resource type="Animation" id="Animation_csrb3"]
 length = 0.001
@@ -259,15 +260,18 @@ texture_focused = ExtResource("8_fxi16")
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 1.49844
+anchor_bottom = 1.19583
 offset_left = 29.0
 offset_top = 30.0
 offset_right = -645.0
 offset_bottom = -553.0
 grow_vertical = 2
-theme_override_font_sizes/font_size = 100
-text = "GAME NAME"
+theme_override_colors/font_color = Color(0.807843, 0.807843, 0.807843, 0.74902)
+theme_override_fonts/font = ExtResource("13_vsl72")
+theme_override_font_sizes/font_size = 80
+text = "JOHN HACKER'S 
+SLAB SURFING"
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelSettings" type="Panel" parent="."]
@@ -331,7 +335,6 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 1
 script = ExtResource("3_y6s48")
-metadata/_custom_type_script = "uid://boyncuja5e588"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="PanelSettings/VBoxContainer"]
 layout_mode = 2
