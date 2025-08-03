@@ -1,19 +1,19 @@
 [gd_scene load_steps=23 format=3 uid="uid://buvrp1m3nq40a"]
 
-[ext_resource type="Script" uid="uid://dc2omu8hap3rf" path="res://Animations/StartingAnimation.gd" id="1_ktf4q"]
-[ext_resource type="Shader" uid="uid://grvu6jmvxiue" path="res://Animations/animShader.gdshader" id="2_kbdln"]
-[ext_resource type="Texture2D" uid="uid://dteuq7x4fqj3p" path="res://Sprite/intro/mountain3.png" id="3_cowsi"]
-[ext_resource type="Texture2D" uid="uid://bl648hkwc61rv" path="res://Sprite/intro/sky.png" id="3_yei8d"]
-[ext_resource type="Texture2D" uid="uid://b6d2q0vj772gt" path="res://Sprite/intro/mountain2.png" id="4_yei8d"]
-[ext_resource type="Texture2D" uid="uid://clurulssyueos" path="res://Sprite/intro/mountain1.png" id="5_ld8w7"]
-[ext_resource type="Texture2D" uid="uid://bda41ljxwhy1y" path="res://Sprite/intro/zerosandones.png" id="7_hnjt8"]
-[ext_resource type="Texture2D" uid="uid://bh5nfcvgkcvms" path="res://Sprite/intro/ditheredstuff.png" id="8_p2c06"]
-[ext_resource type="Texture2D" uid="uid://10kta5h5cds1" path="res://Sprite/whitehat/death/whitehat1.png" id="9_p2c06"]
-[ext_resource type="FontFile" uid="uid://b1jqwyu0ft1qk" path="res://Font/ethnocentric/Ethnocentric Rg.otf" id="10_ktf4q"]
-[ext_resource type="FontFile" uid="uid://uxcqnkg5x0x0" path="res://Font/ethnocentric/Ethnocentric Rg It.otf" id="11_yw1ld"]
-[ext_resource type="Texture2D" uid="uid://daab5ebfjy0bf" path="res://Sprite/Screenshot 2025-08-02 205723.png" id="12_wpi7k"]
-[ext_resource type="Texture2D" uid="uid://bcdtlw8vqfpp1" path="res://Sprite/Screenshot 2025-08-02 205807.png" id="13_7l6vw"]
-[ext_resource type="Texture2D" uid="uid://c4cruk02ts7js" path="res://Sprite/Screenshot 2025-08-02 210602.png" id="14_vumtk"]
+[ext_resource type="Script" uid="uid://uejjv1dfuary" path="res://Animations/StartingAnimation.gd" id="1_ktf4q"]
+[ext_resource type="Shader" uid="uid://d1afbvfeg3l66" path="res://Animations/animShader.gdshader" id="2_kbdln"]
+[ext_resource type="Texture2D" uid="uid://doqrepl8177w8" path="res://Sprite/intro/mountain3.png" id="3_cowsi"]
+[ext_resource type="Texture2D" uid="uid://blxcr7xghke2c" path="res://Sprite/intro/sky.png" id="3_yei8d"]
+[ext_resource type="Texture2D" uid="uid://doyns6e4omkdm" path="res://Sprite/intro/mountain2.png" id="4_yei8d"]
+[ext_resource type="Texture2D" uid="uid://cmueajr8635ag" path="res://Sprite/intro/mountain1.png" id="5_ld8w7"]
+[ext_resource type="Texture2D" uid="uid://dhxheugllsv08" path="res://Sprite/intro/zerosandones.png" id="7_hnjt8"]
+[ext_resource type="Texture2D" uid="uid://bk1vcksovlpvv" path="res://Sprite/intro/ditheredstuff.png" id="8_p2c06"]
+[ext_resource type="Texture2D" uid="uid://cc55uurimwqq4" path="res://Sprite/whitehat/death/whitehat1.png" id="9_p2c06"]
+[ext_resource type="FontFile" uid="uid://bse0oq3a032ab" path="res://Font/ethnocentric/Ethnocentric Rg.otf" id="10_ktf4q"]
+[ext_resource type="FontFile" uid="uid://byyqtexh1fno5" path="res://Font/ethnocentric/Ethnocentric Rg It.otf" id="11_yw1ld"]
+[ext_resource type="Texture2D" uid="uid://cil015b02ru4b" path="res://Sprite/Screenshot 2025-08-02 205723.png" id="12_wpi7k"]
+[ext_resource type="Texture2D" uid="uid://dcjpb8jopdyny" path="res://Sprite/Screenshot 2025-08-02 205807.png" id="13_7l6vw"]
+[ext_resource type="Texture2D" uid="uid://bt4c6mjxb6crh" path="res://Sprite/Screenshot 2025-08-02 210602.png" id="14_vumtk"]
 
 [sub_resource type="Animation" id="Animation_kbdln"]
 length = 0.001
@@ -269,6 +269,46 @@ tracks/5/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_o2p1c"]
+resource_name = "screenshot"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(4.33333, 5.3, 9.27791, 10.3779),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.966667, 9.27791, 10.3779),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.4, 3.36667, 9.27791, 10.3779),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_qplsf"]
 resource_name = "start"
 length = 20.0
@@ -323,46 +363,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_o2p1c"]
-resource_name = "screenshot"
-length = 20.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("1:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(4.33333, 5.3, 9.27791, 10.3779),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("3:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.966667, 9.27791, 10.3779),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("2:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(2.4, 3.36667, 9.27791, 10.3779),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qcx6e"]

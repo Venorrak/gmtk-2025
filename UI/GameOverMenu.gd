@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func _on_restart_button_up() -> void:
 	playButtonSound()
-	get_tree().change_scene_to_packed(gameScene)
+	get_tree().change_scene_to_file("res://main.tscn")
 
 func _on_menu_button_up() -> void:
 	playButtonSound()
