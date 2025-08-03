@@ -78,7 +78,7 @@ func shoot(bullet : PackedScene) -> void:
 	if canShoot && get_parent().visible && timeToShoot:
 		for s in cannons:
 			var dubBullet = bullet.instantiate()
-			get_tree().root.get_node("Main/2D").add_child(dubBullet)
+			get_tree().root.get_node("Main/2dverse").add_child(dubBullet)
 			dubBullet.position = s.global_position
 			dubBullet.rotation = s.global_rotation
 		AudioManager.playSound(gunSound)

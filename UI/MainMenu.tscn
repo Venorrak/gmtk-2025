@@ -1,25 +1,26 @@
-[gd_scene load_steps=26 format=3 uid="uid://hobpokn16d78"]
+[gd_scene load_steps=27 format=3 uid="uid://hobpokn16d78"]
 
-[ext_resource type="Script" uid="uid://c36w0sap03ugl" path="res://UI/main_menu.gd" id="1_uahxu"]
-[ext_resource type="Script" uid="uid://bdkwkiy02tuyh" path="res://UI/music_control.gd" id="2_b37jj"]
-[ext_resource type="AudioStream" uid="uid://s4hgtyw47wb1" path="res://Audio/sfx/Click_01.wav" id="2_vsl72"]
-[ext_resource type="Script" uid="uid://cfkcrkmsuo6jg" path="res://UI/fullscreen_control.gd" id="3_t6syg"]
-[ext_resource type="Texture2D" uid="uid://dteuq7x4fqj3p" path="res://Sprite/intro/mountain3.png" id="3_w5vcv"]
-[ext_resource type="Script" uid="uid://bcmhx37rrchhn" path="res://UI/sfx_control.gd" id="3_y6s48"]
-[ext_resource type="Texture2D" uid="uid://xhsjeo5whvm" path="res://Sprite/intro/sky2.png" id="3_yndlu"]
-[ext_resource type="Texture2D" uid="uid://b6d2q0vj772gt" path="res://Sprite/intro/mountain2.png" id="4_d2d4f"]
-[ext_resource type="Texture2D" uid="uid://clurulssyueos" path="res://Sprite/intro/mountain1.png" id="5_6vw7e"]
-[ext_resource type="Texture2D" uid="uid://dkiwr1a05jknh" path="res://Sprite/Buttons/play-button.png" id="6_avhca"]
-[ext_resource type="Texture2D" uid="uid://c6w4pc0tpnme0" path="res://Sprite/intro/gradient.png" id="7_v87kc"]
-[ext_resource type="Texture2D" uid="uid://b6pna57nbl8jj" path="res://Sprite/Buttons/play-button-pressed.png" id="7_x8sin"]
-[ext_resource type="Texture2D" uid="uid://b0xtysv2udyt3" path="res://Sprite/Buttons/play-button-focus.png" id="8_fxi16"]
-[ext_resource type="Texture2D" uid="uid://u4733pdpq1mc" path="res://Sprite/Buttons/options-button.png" id="9_vsl72"]
-[ext_resource type="Texture2D" uid="uid://bcef24ojb13st" path="res://Sprite/Buttons/options-button-pressed.png" id="10_yndlu"]
-[ext_resource type="Texture2D" uid="uid://cdeiveqr3pdei" path="res://Sprite/Buttons/quit-button.png" id="11_v87kc"]
-[ext_resource type="Texture2D" uid="uid://c7plgekhtemct" path="res://Sprite/Buttons/quit-button-pressed.png" id="12_h2xek"]
-[ext_resource type="FontFile" uid="uid://uxcqnkg5x0x0" path="res://Font/ethnocentric/Ethnocentric Rg It.otf" id="13_vsl72"]
-[ext_resource type="Texture2D" uid="uid://cv5w6ygak2p2e" path="res://Sprite/Buttons/back-button.png" id="16_fxi16"]
-[ext_resource type="Texture2D" uid="uid://tin8r7kbiqhi" path="res://Sprite/Buttons/back-button-pressed.png" id="17_vsl72"]
+[ext_resource type="Script" uid="uid://dn0td0v27apb6" path="res://UI/main_menu.gd" id="1_uahxu"]
+[ext_resource type="Script" uid="uid://c85yxaouivtfy" path="res://UI/music_control.gd" id="2_b37jj"]
+[ext_resource type="AudioStream" uid="uid://c7fhpq12bxvgn" path="res://Audio/sfx/Click_01.wav" id="2_vsl72"]
+[ext_resource type="PackedScene" uid="uid://jeth6hp8pbu3" path="res://main.tscn" id="3_h2xek"]
+[ext_resource type="Script" uid="uid://ck3pjawuj4osq" path="res://UI/fullscreen_control.gd" id="3_t6syg"]
+[ext_resource type="Texture2D" uid="uid://doqrepl8177w8" path="res://Sprite/intro/mountain3.png" id="3_w5vcv"]
+[ext_resource type="Script" uid="uid://boyncuja5e588" path="res://UI/sfx_control.gd" id="3_y6s48"]
+[ext_resource type="Texture2D" uid="uid://ns3pg8xlfyos" path="res://Sprite/intro/sky2.png" id="3_yndlu"]
+[ext_resource type="Texture2D" uid="uid://doyns6e4omkdm" path="res://Sprite/intro/mountain2.png" id="4_d2d4f"]
+[ext_resource type="Texture2D" uid="uid://cmueajr8635ag" path="res://Sprite/intro/mountain1.png" id="5_6vw7e"]
+[ext_resource type="Texture2D" uid="uid://b7tt4gjsv2a57" path="res://Sprite/Buttons/play-button.png" id="6_avhca"]
+[ext_resource type="Texture2D" uid="uid://ctv2oxuq3y8dj" path="res://Sprite/intro/gradient.png" id="7_v87kc"]
+[ext_resource type="Texture2D" uid="uid://dfqk5vvwuoak6" path="res://Sprite/Buttons/play-button-pressed.png" id="7_x8sin"]
+[ext_resource type="Texture2D" uid="uid://caf4ewhe5ltco" path="res://Sprite/Buttons/play-button-focus.png" id="8_fxi16"]
+[ext_resource type="Texture2D" uid="uid://cwqvgdtitdoi3" path="res://Sprite/Buttons/options-button.png" id="9_vsl72"]
+[ext_resource type="Texture2D" uid="uid://bjlrnh5owhp34" path="res://Sprite/Buttons/options-button-pressed.png" id="10_yndlu"]
+[ext_resource type="Texture2D" uid="uid://dj2h7p4qi5utl" path="res://Sprite/Buttons/quit-button.png" id="11_v87kc"]
+[ext_resource type="Texture2D" uid="uid://bflsoeiwwaapd" path="res://Sprite/Buttons/quit-button-pressed.png" id="12_h2xek"]
+[ext_resource type="FontFile" uid="uid://byyqtexh1fno5" path="res://Font/ethnocentric/Ethnocentric Rg It.otf" id="13_vsl72"]
+[ext_resource type="Texture2D" uid="uid://dl6vakssrr6if" path="res://Sprite/Buttons/back-button.png" id="16_fxi16"]
+[ext_resource type="Texture2D" uid="uid://xrajdanxi4qy" path="res://Sprite/Buttons/back-button-pressed.png" id="17_vsl72"]
 
 [sub_resource type="Animation" id="Animation_csrb3"]
 length = 0.001
@@ -121,6 +122,7 @@ grow_vertical = 2
 script = ExtResource("1_uahxu")
 backButton = NodePath("PanelSettings/VBoxContainer/VBoxContainer/Back")
 buttonSound = ExtResource("2_vsl72")
+mainScene = ExtResource("3_h2xek")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -220,6 +222,7 @@ stretch_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="Mountains"]
 modulate = Color(0, 0, 0, 1)
+layout_mode = 0
 offset_top = 430.0
 offset_right = 1280.0
 offset_bottom = 722.0

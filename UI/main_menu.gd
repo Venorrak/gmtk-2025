@@ -4,6 +4,7 @@ extends Control
 @onready var panel_settings = $PanelSettings
 @export var backButton : TextureButton
 @export var buttonSound : AudioStream
+@export var mainScene : PackedScene
 
 func _ready():
 	main_buttons.visible = true
@@ -14,7 +15,7 @@ func _ready():
 
 func _on_start_button_up() -> void:
 	playButtonSound()
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().change_scene_to_packed(mainScene)
 
 func _on_settings_button_up() -> void:
 	playButtonSound()

@@ -5,3 +5,6 @@ addons/
 .editorconfig
 *.import
 *.uid
+*.tmp
+export
+export_presets.cfg

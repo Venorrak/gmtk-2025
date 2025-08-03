@@ -1,12 +1,12 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b2u6of035s4k8"]
 
-[ext_resource type="Texture2D" uid="uid://bticg2xabl2pg" path="res://FallingBlocks/Blocks/BlockMat/Cube-export-export.png" id="1_pp08u"]
+[ext_resource type="Texture2D" uid="uid://brx7a43kkjkek" path="res://FallingBlocks/Blocks/BlockMat/Cube-export.png" id="1_d0suq"]
 
 [resource]
 resource_local_to_scene = true
 vertex_color_use_as_albedo = true
 albedo_color = Color(2, 2, 5, 1)
-albedo_texture = ExtResource("1_pp08u")
+albedo_texture = ExtResource("1_d0suq")
 albedo_texture_force_srgb = true
 metallic_specular = 0.0
 roughness = 0.0
