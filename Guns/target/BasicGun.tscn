@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhq3276v3v0ob"]
+[gd_scene load_steps=5 format=3 uid="uid://dhq3276v3v0ob"]
 
 [ext_resource type="Script" uid="uid://ce7kg7dtcetgx" path="res://Guns/Gun.gd" id="1_sbskw"]
 [ext_resource type="Texture2D" uid="uid://em3s8rqj3i5" path="res://Sprite/miscsprites/miscsprite3.png" id="2_3peqp"]
 [ext_resource type="PackedScene" uid="uid://cwlnqm5kduj5w" path="res://Bullets/Straight/StraightBullet.tscn" id="2_idkd5"]
+[ext_resource type="AudioStream" uid="uid://c7c0s3d4mr6sd" path="res://Audio/sfx/pew.wav" id="3_txypl"]
 
 [node name="BasicGun" type="Node2D"]
 script = ExtResource("1_sbskw")
@@ -11,5 +12,6 @@ cooldown = 0.8
 radius = 40.0
 detectionRadius = 450.0
 cannonSprite = ExtResource("2_3peqp")
+gunSound = ExtResource("3_txypl")
 bullet = ExtResource("2_idkd5")
 metadata/_custom_type_script = "uid://ce7kg7dtcetgx"

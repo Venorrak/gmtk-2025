@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp11c2osy5gib"]
+[gd_scene load_steps=5 format=3 uid="uid://cp11c2osy5gib"]
 
 [ext_resource type="Script" uid="uid://ce7kg7dtcetgx" path="res://Guns/Gun.gd" id="1_j1hjg"]
 [ext_resource type="PackedScene" uid="uid://cx2p5ym2at02w" path="res://Bullets/Double/Rotate/DoubleRotateBullet.tscn" id="2_eot4w"]
 [ext_resource type="Texture2D" uid="uid://em3s8rqj3i5" path="res://Sprite/miscsprites/miscsprite3.png" id="2_ppowt"]
+[ext_resource type="AudioStream" uid="uid://c7c0s3d4mr6sd" path="res://Audio/sfx/pew.wav" id="3_fgy05"]
 
 [node name="DoubleRGun" type="Node2D"]
 script = ExtResource("1_j1hjg")
@@ -10,5 +11,6 @@ cooldown = 2.4
 radius = 40.0
 detectionRadius = 350.0
 cannonSprite = ExtResource("2_ppowt")
+gunSound = ExtResource("3_fgy05")
 bullet = ExtResource("2_eot4w")
 metadata/_custom_type_script = "uid://ce7kg7dtcetgx"

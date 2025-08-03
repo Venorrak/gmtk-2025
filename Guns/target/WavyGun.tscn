@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c34bwg282kfwy"]
+[gd_scene load_steps=5 format=3 uid="uid://c34bwg282kfwy"]
 
 [ext_resource type="Script" uid="uid://ce7kg7dtcetgx" path="res://Guns/Gun.gd" id="1_21ntt"]
 [ext_resource type="Texture2D" uid="uid://em3s8rqj3i5" path="res://Sprite/miscsprites/miscsprite3.png" id="2_42nk6"]
 [ext_resource type="PackedScene" uid="uid://bu33pmneuxmsj" path="res://Bullets/Wavy/WavyBullet.tscn" id="2_br17p"]
+[ext_resource type="AudioStream" uid="uid://c7c0s3d4mr6sd" path="res://Audio/sfx/pew.wav" id="3_dinfk"]
 
 [node name="WavyGun" type="Node2D"]
 script = ExtResource("1_21ntt")
@@ -10,5 +11,6 @@ cooldown = 1.0
 radius = 40.0
 detectionRadius = 450.0
 cannonSprite = ExtResource("2_42nk6")
+gunSound = ExtResource("3_dinfk")
 bullet = ExtResource("2_br17p")
 metadata/_custom_type_script = "uid://ce7kg7dtcetgx"

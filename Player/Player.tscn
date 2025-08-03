@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtiscujuoah34"]
+[gd_scene load_steps=16 format=3 uid="uid://dtiscujuoah34"]
 
 [ext_resource type="Script" uid="uid://b2facgkuguqvg" path="res://Player/player.gd" id="1_q3lat"]
 [ext_resource type="Script" uid="uid://drw0u0trca3q" path="res://Player/FSM/StateMachine.gd" id="2_tok1r"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://guo1fqadcow5" path="res://Player/FSM/IdleState.gd" id="4_s1rgi"]
 [ext_resource type="Script" uid="uid://dkt6ml0sl34g8" path="res://Player/FSM/StunnedState.gd" id="5_j23h2"]
 [ext_resource type="Script" uid="uid://c0raylo7iqdnv" path="res://Player/FSM/WalkingState.gd" id="6_0j2ni"]
+[ext_resource type="AudioStream" uid="uid://giomq46tqu5e" path="res://Audio/sfx/hit.wav" id="6_j23h2"]
 [ext_resource type="Script" uid="uid://cropfcgrb5ohp" path="res://Player/FSM/DeathState.gd" id="7_s1rgi"]
 [ext_resource type="SpriteFrames" uid="uid://bfyjoj7yxfx1q" path="res://Sprite/whitehat/Player.tres" id="7_vlldt"]
 
@@ -135,6 +136,7 @@ speed = 1100.0
 stunTime = 1.3
 animated_sprite = NodePath("../../AnimatedSprite2D")
 animation_player = NodePath("../../AnimationPlayer")
+stunnedSound = ExtResource("6_j23h2")
 body = NodePath("../..")
 
 [node name="WalkingState" type="Node" parent="SM" node_paths=PackedStringArray("animated_sprite", "animation_player", "body")]

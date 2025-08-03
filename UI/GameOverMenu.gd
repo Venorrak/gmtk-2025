@@ -5,6 +5,7 @@ extends Control
 @export var restartButton : TextureButton
 @export var menuScene : PackedScene
 @export var gameScene : PackedScene
+@export var buttonSound : AudioStream
 
 func _ready() -> void:
 	Animator.play("start")
@@ -13,9 +14,12 @@ func _ready() -> void:
 	restartButton.grab_focus()
 
 func _on_restart_button_up() -> void:
-	#get_tree().change_scene_to_packed(gameScene)
-	pass
+	playButtonSound()
+	get_tree().change_scene_to_packed(gameScene)
 
 func _on_menu_button_up() -> void:
-	#get_tree().change_scene_to_packed(menuScene)
-	pass
+	playButtonSound()
+	get_tree().change_scene_to_packed(menuScene)
+	
+func playButtonSound() -> void:
+	AudioManager.playSound(buttonSound)

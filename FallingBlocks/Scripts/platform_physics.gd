@@ -6,6 +6,8 @@ extends RigidBody3D
 @export var tilt_speed: float = 5.0
 @export var max_movement_speed = 8.0
 @export var landedColor : Color
+@export var sucessSound : AudioStream
+@export var failSound : AudioStream
 
 var is_landed := false
 var current_tilt := Vector3.ZERO

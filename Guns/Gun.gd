@@ -8,6 +8,7 @@ class_name Gun extends Node2D
 @export var radius : float = 100
 @export var detectionRadius : float = 200
 @export var cannonSprite : Texture2D
+@export var gunSound : AudioStream
 
 var canShoot : bool = true
 var timer : Timer = Timer.new()
@@ -80,6 +81,7 @@ func shoot(bullet : PackedScene) -> void:
 			get_tree().root.get_node("Main/2D").add_child(dubBullet)
 			dubBullet.position = s.global_position
 			dubBullet.rotation = s.global_rotation
+		AudioManager.playSound(gunSound)
 		canShoot = false
 		timer.start()
 	

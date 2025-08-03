@@ -3,6 +3,7 @@ extends Control
 @onready var pause = $"."
 @onready var main_buttons = $MainButtons
 @export var menuScene : PackedScene
+@export var buttonSound : AudioStream
 
 var inPauseMenu := false
 var pausedTime = false
@@ -20,10 +21,6 @@ func _process(_delta):
 		elif pausedTime:
 			toggleTime()
 
-
-func _on_exit_pressed():
-	get_tree().quit()
-
 func toggleTime():
 	if Engine.time_scale == 0.0:
 		Engine.time_scale = 1.0 
@@ -33,12 +30,18 @@ func toggleTime():
 		pausedTime = inPauseMenu
 
 func _on_quit_button_up() -> void:
+	playButtonSound()
 	get_tree().quit()
 
 func _on_restart_button_up() -> void:
 	SignalBus.score = 0
+	playButtonSound()
 	get_tree().reload_current_scene()
 
 func _on_menu_button_up() -> void:
 	SignalBus.score = 0
+	playButtonSound()
 	get_tree().change_scene_to_packed(menuScene)
+	
+func playButtonSound() -> void:
+	AudioManager.playSound(buttonSound)

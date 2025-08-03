@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://jeth6hp8pbu3"]
+[gd_scene load_steps=35 format=3 uid="uid://jeth6hp8pbu3"]
 
 [ext_resource type="Theme" uid="uid://bb74rah8n7o5x" path="res://Theme.tres" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://bu0b2cvqebt01" path="res://main.gd" id="1_7mycd"]
@@ -12,7 +12,9 @@
 [ext_resource type="Script" uid="uid://drign7lf3nhos" path="res://FallingBlocks/Scripts/camera_orbiting.gd" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://dgsfskwfqnpll" path="res://GameStates/InterState.gd" id="4_dg77c"]
 [ext_resource type="PackedScene" uid="uid://buvrp1m3nq40a" path="res://Animations/StartingAnimation.tscn" id="4_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://hobpokn16d78" path="res://UI/MainMenu.tscn" id="5_lswn8"]
 [ext_resource type="Script" uid="uid://dcii83uba36ms" path="res://GameStates/GameOverState.gd" id="5_ycdy4"]
+[ext_resource type="AudioStream" uid="uid://c7fhpq12bxvgn" path="res://Audio/sfx/Click_01.wav" id="6_a6jrf"]
 [ext_resource type="Script" uid="uid://d0k67lx4tmh4i" path="res://GameStates/FallingState.gd" id="6_w48qg"]
 [ext_resource type="Script" uid="uid://boyncuja5e588" path="res://UI/sfx_control.gd" id="6_yaehf"]
 [ext_resource type="PackedScene" uid="uid://ccmo8cbr53nrq" path="res://Animations/InterAnimation.tscn" id="6_ycdy4"]
@@ -100,6 +102,8 @@ texture = SubResource("ViewportTexture_lquwl")
 [node name="Pause" type="Control" parent="UI"]
 layout_mode = 2
 script = ExtResource("2_272bh")
+menuScene = ExtResource("5_lswn8")
+buttonSound = ExtResource("6_a6jrf")
 
 [node name="Panel" type="Panel" parent="UI/Pause"]
 layout_mode = 1

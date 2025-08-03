@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://hobpokn16d78"]
+[gd_scene load_steps=24 format=3 uid="uid://hobpokn16d78"]
 
 [ext_resource type="Script" uid="uid://dn0td0v27apb6" path="res://UI/main_menu.gd" id="1_uahxu"]
 [ext_resource type="Script" uid="uid://c85yxaouivtfy" path="res://UI/music_control.gd" id="2_b37jj"]
 [ext_resource type="Texture2D" uid="uid://blxcr7xghke2c" path="res://Sprite/intro/sky.png" id="2_t4ff4"]
+[ext_resource type="AudioStream" uid="uid://c7fhpq12bxvgn" path="res://Audio/sfx/Click_01.wav" id="2_vsl72"]
 [ext_resource type="Script" uid="uid://ck3pjawuj4osq" path="res://UI/fullscreen_control.gd" id="3_t6syg"]
 [ext_resource type="Texture2D" uid="uid://doqrepl8177w8" path="res://Sprite/intro/mountain3.png" id="3_w5vcv"]
 [ext_resource type="Script" uid="uid://boyncuja5e588" path="res://UI/sfx_control.gd" id="3_y6s48"]
@@ -117,6 +118,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uahxu")
 backButton = NodePath("PanelSettings/VBoxContainer/VBoxContainer/Back")
+buttonSound = ExtResource("2_vsl72")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

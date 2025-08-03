@@ -6,6 +6,7 @@ var timer : Timer
 var animation_tree
 @export var animated_sprite: AnimatedSprite2D
 @export var animation_player: AnimationPlayer
+@export var stunnedSound : AudioStream
 
 func _ready() -> void:
 	var newTimer : Timer = Timer.new()
@@ -34,6 +35,7 @@ func enter() -> void:
 	animated_sprite.play("stunned")
 	animation_player.play("stunned")
 	SignalBus.fastDropPlatform.emit()
+	AudioManager.playSound(stunnedSound)
 
 func exit() -> void:
 	animation_player.stop()

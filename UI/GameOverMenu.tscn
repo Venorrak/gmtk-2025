@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cpbu56wvvj2fx"]
+[gd_scene load_steps=14 format=3 uid="uid://cpbu56wvvj2fx"]
 
 [ext_resource type="Texture2D" uid="uid://cn8k77aicvlye" path="res://Sprite/miscsprites/GameOver.png" id="1_0u5yh"]
 [ext_resource type="Script" uid="uid://b4e6kvljmjy2r" path="res://UI/GameOverMenu.gd" id="1_jk5tv"]
@@ -7,8 +7,24 @@
 [ext_resource type="Texture2D" uid="uid://d4kh8md2aw1yd" path="res://Sprite/Buttons/restart-button-pressed.png" id="3_jk5tv"]
 [ext_resource type="PackedScene" uid="uid://jeth6hp8pbu3" path="res://main.tscn" id="3_pbllv"]
 [ext_resource type="Texture2D" uid="uid://caf4ewhe5ltco" path="res://Sprite/Buttons/play-button-focus.png" id="4_en13d"]
+[ext_resource type="AudioStream" uid="uid://c7fhpq12bxvgn" path="res://Audio/sfx/Click_01.wav" id="4_pbllv"]
 [ext_resource type="Texture2D" uid="uid://dtt2oq60u7bn5" path="res://Sprite/Buttons/mm-button.png" id="5_0qglx"]
 [ext_resource type="Texture2D" uid="uid://dqcu3ufd1rkk" path="res://Sprite/Buttons/mm-button-pressed.png" id="6_pbllv"]
+
+[sub_resource type="Animation" id="Animation_on86r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_yi0mk"]
 resource_name = "start"
@@ -25,21 +41,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 0, 0, 1), Color(0.48, 0, 0, 1), Color(1, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_on86r"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/HBoxContainer/TextureRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t8gr0"]
@@ -61,6 +62,7 @@ scoreLabel = NodePath("VBoxContainer/Label")
 restartButton = NodePath("VBoxContainer/VBoxContainer/restart")
 menuScene = ExtResource("2_0qglx")
 gameScene = ExtResource("3_pbllv")
+buttonSound = ExtResource("4_pbllv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
