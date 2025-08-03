@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://d28j1fpl4k801"]
+[gd_scene load_steps=8 format=4 uid="uid://d28j1fpl4k801"]
 
-[ext_resource type="Script" uid="uid://du3kb181qimob" path="res://FallingBlocks/Scripts/platform_physics.gd" id="1_cla6m"]
-[ext_resource type="Material" uid="uid://b2u6of035s4k8" path="res://FallingBlocks/Blocks/BlockMat/BlockMatDetailed.tres" id="2_ms87g"]
+[ext_resource type="Script" uid="uid://2rbxtfvdojbi" path="res://FallingBlocks/Scripts/platform_physics.gd" id="1_cla6m"]
+[ext_resource type="Material" uid="uid://ctlfpesnqs77d" path="res://FallingBlocks/Blocks/BlockMat/hexagonMaterial.tres" id="2_cla6m"]
+[ext_resource type="AudioStream" uid="uid://c8b3klari7pyk" path="res://Audio/sfx/Complete_02.wav" id="2_qmx6p"]
+[ext_resource type="AudioStream" uid="uid://dpu8fvj7mb71s" path="res://Audio/sfx/fail.wav" id="3_u3rdv"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cla6m"]
 points = PackedVector3Array(0.85, 0.25, 0, 0, 0, 0, -0.85, 0, 0, 0.85, 0, 1, 0.85, 0.25, 1, 0, 0, 1.5, 0, 0.25, 1.5, -0.85, 0, 1, -0.85, 0.25, 1, -0.85, 0.25, 0, 0.85, 0, 0, 0, 0, -0.5, 0, 0.25, -0.5)
@@ -21,6 +23,7 @@ _surfaces = [{
 blend_shape_mode = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_cla6m"]
+resource_local_to_scene = true
 resource_name = "hexagone_Cylinder_002"
 _surfaces = [{
 "aabb": AABB(-0.866025, -0.15, -1, 1.73205, 0.3, 2),
@@ -29,7 +32,7 @@ _surfaces = [{
 "index_count": 60,
 "index_data": PackedByteArray("AAAQAAIAAAARABAAEgATABQAEgAVABMACAADAAkACAABAAMABAAWAAYABAAXABYACwAKABgACgALABkAGQALAAwACgAZABoAGwAcAB0AGwAeABwAHwAFACAAHwAHAAUAIQAiAA8AIgAhAA0ADQAhACMAIgANAA4A"),
 "lods": [0.717537, PackedByteArray("AAAIAAIACAAJAAIACAADAAkACAABAAMACgALAAwABAAFAAYABAAHAAUADQAOAA8A"), 0.794309, PackedByteArray("AAABAAIAAQADAAIABAAFAAYABAAHAAUA")],
-"material": ExtResource("2_ms87g"),
+"material": ExtResource("2_cla6m"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,
@@ -47,11 +50,14 @@ fall_speed = 1.5
 fastDropSpeed = 2.5
 max_movement_speed = 1.0
 landedColor = Color(0.0895011, 0.64905, 0.959144, 1)
+sucessSound = ExtResource("2_qmx6p")
+failSound = ExtResource("3_u3rdv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.119934, -0.497227)
 shape = SubResource("ConvexPolygonShape3D_cla6m")
 
-[node name="Cylinder2" type="MeshInstance3D" parent="."]
+[node name="mesh" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_cla6m")
 mesh = SubResource("ArrayMesh_cla6m")
 skeleton = NodePath("")

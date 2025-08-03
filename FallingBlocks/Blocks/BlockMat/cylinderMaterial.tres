@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://2dai27h3sqal"]
+
+[ext_resource type="Texture2D" uid="uid://bybd8k1dpljrk" path="res://FallingBlocks/Blocks/BlockMat/Cylinder-export.png" id="1_jfenx"]
+
+[resource]
+resource_local_to_scene = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(2, 2, 5, 1)
+albedo_texture = ExtResource("1_jfenx")
+albedo_texture_force_srgb = true
+metallic_specular = 0.0
+roughness = 0.0
+emission_enabled = true
+emission_energy_multiplier = 0.0
+rim_tint = 0.0
+texture_filter = 0

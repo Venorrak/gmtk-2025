@@ -18,9 +18,10 @@ func enter() -> void:
 	anim.animEnd.connect(drop)
 	anim.gameHidden.connect(screenCovered)
 	body.HUD.add_child(anim)
+	SignalBus.gameOver.connect(gameOver)
 
 func exit() -> void:
-	pass
+	SignalBus.gameOver.disconnect(gameOver)
 
 func screenCovered() -> void:
 	SignalBus.newPlatfrom.emit(randi_range(0, nbTypesOfPlatforms - 1))
@@ -28,3 +29,6 @@ func screenCovered() -> void:
 func drop() -> void:
 	SignalBus.dropPlatform.emit()
 	Transitioned.emit(self, "FallingState")
+
+func gameOver() -> void:
+	Transitioned.emit(self, "GameOverState")
