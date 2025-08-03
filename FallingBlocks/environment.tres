@@ -1,6 +1,6 @@
 [gd_resource type="Environment" load_steps=4 format=3 uid="uid://cgvnbljkuv7j0"]
 
-[ext_resource type="Shader" uid="uid://c8m73iby7awb3" path="res://FallingBlocks/sky.gdshader" id="1_u1qjm"]
+[ext_resource type="Shader" uid="uid://bgwllu4f0x8ci" path="res://FallingBlocks/sky.gdshader" id="1_u1qjm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rvtx7"]
 shader = ExtResource("1_u1qjm")
