@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b2u6of035s4k8"]
 
-[ext_resource type="Texture2D" uid="uid://chhkpdhjpbco2" path="res://FallingBlocks/Blocks/BlockMat/Cube-export-export.png" id="1_pp08u"]
+[ext_resource type="Texture2D" uid="uid://bticg2xabl2pg" path="res://FallingBlocks/Blocks/BlockMat/Cube-export-export.png" id="1_pp08u"]
 
 [resource]
 resource_local_to_scene = true
