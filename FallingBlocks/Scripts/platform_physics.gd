@@ -36,6 +36,7 @@ func _normalDrop() -> void:
 func land(body : Node):
 	if body.is_in_group("Mountain"):
 		print("GAMEOVER")
+		AudioManager.playSound(failSound)
 		SignalBus.Change3DCameraTarget.emit(self)
 		SignalBus.gameOver.emit()
 		return
@@ -44,6 +45,7 @@ func land(body : Node):
 	SignalBus.Change3DCameraTarget.emit(self)	
 	SignalBus.platformDone.emit()
 	SignalBus.score += 1
+	AudioManager.playSound(sucessSound)
 	var material : StandardMaterial3D = $mesh.material_override as StandardMaterial3D
 	material.albedo_color = landedColor
 	print("LANDED")
